@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Codepen demo</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        height: 100vh;
+        text-align: center;
+        color: white;
+        background: #003049;
+      }
+
+      .section span {
+        text-decoration: underline;
+      }
+
+      .section-slides {
+        margin-top: -1px;
+      }
+
+      /* MAIN STYLES
+      –––––––––––––––––––––––––––––––––––––––––––––––––– */
+      .slides {
+        display: grid;
+      }
+
+      .slide {
+        grid-area: 1/1;
+      }
+
+      .slide figure {
+        margin: 0;
+        position: relative;
+        height: 100vh;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: #f1faee;
+      }
+
+      .slide figcaption {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        background: rgba(0, 0, 0, 0.15);
+      }
+
+      .slide .heading {
+        display: inline-block;
+        padding: 5px 15px;
+        text-align: center;
+        font-size: clamp(2.5rem, 2vh, 5rem);
+        line-height: 1;
+        font-weight: bold;
+        color: #d62828;
+        background: #fcbf49;
+      }
+
+      /* FOOTER STYLES
+      –––––––––––––––––––––––––––––––––––––––––––––––––– */
+      .page-footer {
+        position: fixed;
+        right: 0;
+        bottom: 50px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        z-index: 1;
+        font-size: 14px;
+        background: white;
+      }
+
+      .page-footer a {
+        display: flex;
+        margin-left: 4px;
+      }
+    </style>
+  </head>
+  
+  <body>
+	<div class="wrap">
+    <section class="section">
+      <div>
+        <h1>Reveal Sections on Scroll</h1>
+        <p>GSAP & ScrollTrigger - <span>clip-path horizontal animation</span></p>
+        <p>👇 Scroll down</p>
+      </div>
+    </section>
+    <section class="section-slides">
+      <div class="slides">
+        <div class="slide">
+          <figure>
+            <img width="1920" height="1280" src="https://assets.codepen.io/162656/gallery-edinburgh.jpg" alt="edinburgh" />
+            <figcaption>
+              <h2 class="heading">Edinburgh</h2>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="slide">
+          <figure>
+            <img width="1920" height="1005" src="https://assets.codepen.io/162656/gallery-berlin.jpg" alt="berlin" />
+            <figcaption>
+              <h2 class="heading">Berlin</h2>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="slide">
+          <figure>
+            <img width="1920" height="1282" src="https://assets.codepen.io/162656/gallery-havana.jpg" alt="havana" />
+            <figcaption>
+              <h2 class="heading">Havana</h2>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="slide">
+          <figure>
+            <img width="1920" height="1279" src="https://assets.codepen.io/162656/gallery-london.jpg" alt="london" />
+            <figcaption>
+              <h2 class="heading">London</h2>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="slide">
+          <figure>
+            <img width="1920" height="1439" src="https://assets.codepen.io/162656/gallery-athens.jpg" alt="athens" />
+            <figcaption>
+              <h2 class="heading">Athens</h2>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="slide">
+          <figure>
+            <img width="1920" height="1281" src="https://assets.codepen.io/162656/gallery-vienna.jpg" alt="vienna" />
+            <figcaption>
+              <h2 class="heading">Vienna</h2>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Thank you!</h2>
+    </section>
+    
+    <footer class="page-footer">
+      <span>made by </span>
+      <a href="https://georgemartsoukos.com/" target="_blank">
+        <img width="24" height="24" src="https://assets.codepen.io/162656/george-martsoukos-small-logo.svg" alt="George Martsoukos logo">
+      </a>
+    </footer>
+	</div>
+
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    const tl = gsap.timeline();
+
+    gsap.set(".slide:not(:last-child)", { clipPath: "inset(0 0 0 0)" });
+    gsap.set(".slide .heading", { clipPath: "inset(0 0 0 0)" });
+
+    tl.to(".slide:not(:last-child)", {
+      ease: "none",
+      clipPath: "inset(0 0 100% 0)",
+      stagger: 1,
+      duration: 1
+    }).to(
+      ".slide .heading",
+      {
+        opacity: 1,
+        duration: 1,
+        stagger: 1
+      },
+      "<"
+    );
+
+    ScrollTrigger.create({
+      trigger: ".slides",
+      start: "top top",
+      end: "+=500%",
+      scrub: true,
+      pin: true,
+      animation: tl
+      //markers: true
+    });
+
+    gsap.set(".slide", {
+      zIndex: (i, target, targets) => targets.length - i
+    });
+
+  </script>
+
+</body>
+</html>

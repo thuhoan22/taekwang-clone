@@ -1,0 +1,286 @@
+@charset "utf-8";
+
+/* Poppins */
+@font-face {
+  font-weight: 600;
+  font-family: "Poppins";
+  src: url("../font/Poppins-SemiBold.eot");
+  src: url("../font/Poppins-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../font/Poppins-SemiBold.woff2") format("woff2"),
+    url("../font/Poppins-SemiBold.woff") format("woff"),
+    url("../font/Poppins-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: "Poppins";
+  src: url("../font/Poppins-Medium.eot");
+  src: url("../font/Poppins-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../font/Poppins-Medium.woff2") format("woff2"),
+    url("../font/Poppins-Medium.woff") format("woff"),
+    url("../font/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "Poppins";
+  src: url("../font/Poppins-Regular.eot");
+  src: url("../font/Poppins-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../font/Poppins-Regular.woff2") format("woff2"),
+    url("../font/Poppins-Regular.woff") format("woff"),
+    url("../font/Poppins-Regular.ttf") format("truetype");
+}
+
+/* Reset */
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body,
+input,
+textarea,
+select,
+table {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  color: #292e3d;
+}
+
+img,
+fieldset {
+  border: 0;
+  vertical-align: top;
+}
+
+dl,
+ul,
+ol,
+menu,
+li {
+  list-style: none;
+}
+
+address,
+caption,
+em {
+  font-style: normal;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+hr {
+  display: none;
+}
+
+body {
+  background: #fff;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: 0;
+}
+
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 88px;
+  z-index: 9999;
+}
+header .inner {
+  height: 100%;
+  padding: 0 5%;
+}
+.header-ct {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.header-ct .logo-link {
+  width: 180px;
+}
+.header-ct .logo img {
+  width: 100%;
+}
+.logo .default {
+  display: none;
+}
+.logo .white {
+  display: block;
+}
+.header-ct .gnb {
+  display: flex;
+  align-items: center;
+}
+.gnb-list {
+  display: flex;
+  align-items: center;
+  margin-right: -5px;
+  list-style: none;
+}
+.gnb-item {
+  margin-left: 40px;
+}
+.gnb-item .txt-link {
+  position: relative;
+  width: auto;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.5s ease;
+  transform: translateY(0) translateZ(0);
+}
+.gnb-item .txt-link:after {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: 0.4s ease-in;
+  content: "";
+}
+
+
+/* Key visual */
+.key-visual {
+  position: relative;
+}
+.key-visual .slide-list {
+  /* display: grid; */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.key-visual .slide-item {
+  /* grid-area: 1/1; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.key-visual .video-box {
+  position: relative;
+  height: 100vh;
+}
+.key-visual .video-box video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.key-visual .other-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+}
+.key-visual .text-box {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.key-visual .text-box .text-md {
+  width: 50%;
+  align-self: flex-end;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #fff;
+}
+.key-visual .text-box .text-lg {
+  flex: 1;
+  max-width: 520px;
+  padding-top: 130px;
+  color: #fff;
+  text-align: right;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: capitalize;
+}
+.key-visual .button-box {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+.key-visual .btn-scroll-down {
+  width: 64px;
+  height: 64px;
+  background: url(../img/svg/btn-down.svg) no-repeat;
+  background-size: 100% auto;
+}
+
+
+/* Sec2 */
+.sec2 {
+  height: 600px;
+  background-color: pink;
+}
+
+
+
+
