@@ -82,81 +82,12 @@
     })
   };
 
-  // gsap.registerPlugin(ScrollTrigger);
-  var scaleImage = function() {
-    const bgFull = document.querySelector('.bg-full');
-    const target = document.querySelector('.swiper-slide-active .item-management');
-    const sectionContent = document.querySelector('.section-content');
-    if (!bgFull || !target || !sectionContent) return;
-
-    const bgFullRect = bgFull.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
-    const sectionContentRect = sectionContent.getBoundingClientRect();
-
-    const bgFullHeightStart = bgFullRect.height;
-    const bgFullHeightEnd = Math.min(targetRect.width, targetRect.height);
-    const bgFullResizeDistance = Math.abs(bgFullHeightStart - bgFullHeightEnd);
-    const sectionContentHeight = sectionContentRect.height;
-
-    const sec2Height = bgFullResizeDistance + sectionContentHeight;
-    $('.sec2').css('height', sec2Height + 'px');
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.ani-box',
-        start: 'top top',
-        end: '+=200%', // Kéo dài hiệu ứng trong 2 lần chiều cao màn hình
-        scrub: true,
-        pin: true,
-      }
-    });
-
-    const slideActive = document.querySelector('.slide-management.swiper-slide-active');
-
-    if (!bgFull || !target) return;
-
-    const slideRect = slideActive.getBoundingClientRect();
-
-    // Lấy cạnh nhỏ nhất của target để làm hình vuông
-    const squareSize = Math.min(targetRect.width, targetRect.height);
-
-    // Tính center của .slide-management.swiper-slide-active
-    const slideCenterX = slideRect.left + slideRect.width / 2;
-    const slideCenterY = slideRect.top + slideRect.height / 2;
-
-    // Tính center của .bg-full (sau khi scale về squareSize)
-    const bgFullCenterX = bgFullRect.left + bgFullRect.width / 2;
-    const bgFullCenterY = bgFullRect.top + bgFullRect.height / 2;
-
-    // Tính offset cần di chuyển
-    const deltaX = slideCenterX - bgFullCenterX;
-    const deltaY = slideCenterY - bgFullCenterY;
-        
-
-    // Thu nhỏ ảnh và di chuyển đến vị trí của vòng tròn trong swiper
-    tl.to('.bg-full', {
-      borderRadius: '100%',
-      width: squareSize,
-      height: squareSize,
-      // x: deltaX,
-      // y: deltaY,
-      ease: 'power2.out',
-    }, 0);
-
-    // Khi đã trùng khớp vị trí, mới fade in section-content
-    tl.to('.section-content', {
-      opacity: 1,
-      duration: 0,
-      ease: 'power1.inOut',
-    });
-  };
-
   $.fn.rect = function () {
     if (this.length === 0) return null;
     return this.get(0).getBoundingClientRect();
   };
 
-  var sectionScale = function() {
+  var enventScaleManagement = function() {
     const $wrap = $('.js-wrap-scale');
     const $ani_box_0 = $wrap.find('.ani-box-scale.step0');
     const $ani_box_1 = $wrap.find('.ani-box-scale.step1');
@@ -255,6 +186,105 @@
     });
   };
 
+  var eventZoomSocial = function() {
+    const $wrap = $('.js-wrap-zoom');
+    const $ani_box_0 = $wrap.find('.ani-box-zoom.step0');
+    const $ani_box_1 = $wrap.find('.ani-box-zoom.step1');
+    const $ani_box_target = $wrap.find('.ani-box-zoom.target');
+    
+    const $box_content = $wrap.find('.box-content');
+    const $info_area_bottom = $wrap.find('.info-area-bottom');
+    const $text_1 = $wrap.find('.js-text-ani1');
+    const $text_2 = $wrap.find('.js-text-ani2');
+    
+    const tl = gsap.timeline();
+    
+    tl.set($ani_box_target, {
+      x: function () {
+        return $ani_box_0.rect().x;
+      },
+      y: function () {
+        return $ani_box_0.rect().y - $wrap.rect().y;
+      },
+      width: function () {
+        return $ani_box_0.width();
+      },
+      height: function () {
+        return $ani_box_0.height();
+      },
+    });
+    
+    tl.to($ani_box_target, {
+      x: function () {
+        return $ani_box_1.rect().x;
+      },
+      y: function () {
+        return $ani_box_1.rect().y - $wrap.rect().y;
+      },
+      width: function () {
+        return $ani_box_1.width();
+      },
+      height: function () {
+        return $ani_box_1.height();
+      },
+    });
+    
+    tl.to($box_content, {
+      opacity: 0,
+    }, '<');
+    
+    tl.to($text_1, {
+      color: 'white',
+      x: '-50',
+    }, '<');
+    
+    tl.to($info_area_bottom, {
+      x: '50',
+    }, '<');
+    
+    tl.to($text_2, {
+      color: 'white',
+    }, '<');
+    
+    tl.to($box_content, {
+      opacity: 1,
+      'z-index': 20,
+    });
+    
+    tl.to($text_1, {
+      x: '0',
+    }, '<');
+    
+    tl.to($info_area_bottom, {
+      x: '0',
+    }, '<');
+    
+    const sct = ScrollTrigger.create({
+      id: 'social-contribution',// 마커 표시할때 이름 부여
+      animation: tl,// 트윈 연결
+      trigger: $wrap,// 트리거 지정
+      end: 'bottom top',
+      start: 'top top',
+      scrub: 1,
+      pin: true,
+      toggleActions: 'play none none reverse',
+      toggleClass: 'scroll-trigger-active',// 트리거 작동 범위에서 클래스 부여
+      invalidateOnRefresh: true,// 리사이즈 대응
+    });
+  };
+
+  var mouseHoverBusiness = function() {
+    $('.js-business-hover')
+      .on('mouseenter', function() {
+        $('.js-business-hover').parents('.business-item').removeClass('is-hover is-small');
+        $(this).parents('.business-item').addClass('is-hover');
+        $('.js-business-hover').not(this).parents('.business-item').addClass('is-small');
+      })
+      .on('mouseleave', function() {
+        $('.js-business-hover').parents('.business-item').removeClass('is-hover is-small');
+      });
+  };
+
 
 	$(win).on('scroll', function () {
 
@@ -263,44 +293,9 @@
 	$(win).on('load', function () {
     eventScrollKV();
     scrollDownBTN();
-    sectionScale();
+    enventScaleManagement();
+    eventZoomSocial();
+    // mouseHoverBusiness();
 	});
 
 })(window, window.jQuery);
-
-
-  /* START :: PageManager */
-  // const PageManager = {};
-
-  // PageManager.scrollTo = function (target, offsetY = 0, complete_callbak = null, smooth = true) {
-  //   if (window.lenis) {
-  //     window.lenis.scrollTo(target, {
-  //       offset: offsetY,
-  //       onComplete: complete_callbak,
-  //       ...(smooth === false && {immediate: true}),
-  //     });
-  //   } else {
-  //     gsap.to(window, {
-  //       scrollTo: {
-  //         y: target,
-  //         offsetY: -1 * offsetY,
-  //       },
-  //       onComplete: complete_callbak,
-  //       ...(smooth === false && {duration: 0}),
-  //     });
-  //   }
-  // }
-  /* // END :: PageManager */
-
-  // const Btn_f8525c3c = {};
-  // Btn_f8525c3c.scrollNext = function (btn) {
-  //   const $btn = $(btn);
-  //   const $target = $btn.closest('.slide-kv-item').next('.slide-kv-item');
-    
-  //   if ($target.length == 1) {
-  //     PageManager.scrollTo($target[0]);
-  //   } else {
-  //     PageManager.scrollTo($(`.sec2`)[0]);
-  //   }
-    
-  // }
