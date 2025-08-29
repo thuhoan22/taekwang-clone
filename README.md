@@ -2,7 +2,7 @@
 
 # deploy: node 16.13.0
 
-# seting deploy:
+# deployment settings::
 ## Step1: npm install --save-dev gh-pages
 ## Step2: add to package.json:
 ### "scripts": {
