@@ -1,0 +1,229 @@
+.sec2 {
+  position: relative;
+  overflow: hidden;
+
+  .wrap-box {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .ani-box-scale {
+    &.step0 {
+      z-index: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      width: 100px;
+      height: 100px;
+    }
+    &.step1 {
+      z-index: 10;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      width: 30rem;
+      height: 30rem;
+    }
+    &.target {
+      pointer-events: none;
+      z-index: 10;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .bg-full {
+    z-index: 10;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    .bg-box {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      object-fit: cover;
+    }
+  }
+
+  .section-content {
+    position: relative;
+    width: 100%;
+  }
+}
+.swiper-management {
+  overflow: visible;
+  .custom-control {
+    position: absolute;
+    bottom: -40px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-btn {
+      position: static;
+      width: 12px;
+      height: 12px;
+      margin-top: 0;
+    }
+  }
+  .swiper-button-prev {
+    &:after {
+      font-size: inherit;
+      color: #000;
+    }
+  }
+  .swiper-button-next {
+    &:after {
+      font-size: inherit;
+      color: #000;
+    }
+  }
+  .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    margin: 0 8px;
+    font-size: 12px;
+    line-height: 1;
+    color: #999;
+    box-sizing: border-box;
+    &-current {
+      min-width: 14px;
+      color: #000;
+    }
+    &-total {
+      min-width: 14px;
+    }
+  }
+}
+.slide-management {
+  position: relative;
+  overflow: visible;
+  transition: all 500ms cubic-bezier(0.33, 1, 0.68, 1);
+  opacity: .4;
+  width: fit-content;
+  will-change: auto;
+  scale: 0.6;
+  .shadow {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: -60px;
+    z-index: -1;
+    width: 100%;
+    height: 86px;
+    background: url(../img/img-shadow.png) no-repeat;
+    background-size: 100% auto;
+    content: '';
+  }
+  &.swiper-slide-prev {
+    opacity: 0;
+  }
+  &.swiper-slide-active {
+    scale: 1;
+    opacity: 1;
+    .shadow {
+      display: block;
+    }
+  }
+}
+.item-management {
+  overflow: hidden;
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+  margin: 0 auto;
+  border-radius: 100%;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .text-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    span {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 38px;
+      color: #fff;
+      text-transform: capitalize;
+    }
+  }
+}
+.box-management {
+  width: 45rem;
+}
+.panel {
+  &-swiper {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    z-index: 2;
+    width: 380px;
+  }
+  &-title {
+    display: block;
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 1;
+    letter-spacing: -3.48px;
+    color: #1D1D1F;
+  }
+  &-list {
+    margin-top: 40px;
+  }
+  &-item {
+    display: none;
+    &.is-active {
+      display: block;
+    }
+    .title {
+      display: block;
+      font-weight: 700;
+      font-size: 27px;
+      line-height: 34px;
+      letter-spacing: -0.8px;
+      color: #1D1D1F;
+    }
+    .text {
+      display: block;
+      margin-top: 40px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.7px;
+      color: #666;
+      &-color {
+        color: #B4985A;
+      }
+    }
+    .btn-link {
+      display: inline-flex;
+      margin-top: 80px;
+    }
+  }
+}

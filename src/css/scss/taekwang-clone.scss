@@ -1,0 +1,18 @@
+@import "common/reset.scss";
+@import "common/common.scss";
+@import "common/font.scss";
+@import "common/variable.scss";
+@import "mixins/_mixns.scss";
+
+@import "../sprites-data/_icons-svg-mixins.scss";
+@import "../sprites-data/normal.scss";
+@import "../sprites-data/retina.scss";
+
+@import "common/header.scss";
+@import "common/footer.scss";
+@import "common/layout.scss";
+@import "pages/key-visual.scss";
+@import "pages/management.scss";
+@import "pages/business.scss";
+@import "pages/social.scss";
+

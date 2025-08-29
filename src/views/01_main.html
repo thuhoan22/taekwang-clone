@@ -1,59 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <title>Taekwang Clone</title>
-    
-    <link rel="stylesheet" href="css/libs/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  
-  <body>
-  <!-- https://www.taekwanggroup.co.kr/ko/main -->
+@@include('./include/head.html',{
+  "title": "Home page : Taekwang Clone",
+  "list_title": "Home page : Main",
+})
+<body class="" data-pagestatus="new : 2025.09.29">
+@@include('./include/skipnavigation.html')
 
-  <!-- https://codepen.io/tutsplus/pen/abgxGaE -->
-	<div class="wrap">
-		<!-- HEADER -->
-		<header class="js-header">
-			<div class="inner">
-				<div class="header-ct">
-					<h1 class="logo">
-            <a href="#none" class="logo-link">
-              <img class="default" src="img/svg/header-logo.svg" alt="Taekwang">
-              <img class="white" src="img/svg/header-logo-white.svg" alt="Taekwang">
-            </a>
-					</h1>
-          <div class="gnb">
-            <ul class="gnb-list">
-              <li class="gnb-item is-active">
-                <a href="#none" class="txt-link">태광그룹</a>
-              </li>
-              <li class="gnb-item">
-                <a href="#none" class="txt-link">사업분야</a>
-              </li>
-              <li class="gnb-item">
-                <a href="#none" class="txt-link">지속가능경영</a>
-              </li>
-              <li class="gnb-item">
-                <a href="#none" class="txt-link">인재채용</a>
-              </li>
-            </ul>
-          </div>
-				</div>
-			</div>
-		</header>
-		<!-- END HEADER -->
+	<div class="wrap main_page">
+		<!--[D] HEADER -->
+    @@include('./include/header.html')
+		<!--//[D] HEADER -->
 
-		<!-- CONTAINER -->
+		<!-- [D] CONTENTS -->
 		<main id="container" class="container">
       <section class="key-visual">
         <ul class="slide-kv-list">
           <li class="slide-kv-item">
             <div class="video-box">
-              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" src="img/video/kv-01.mp4" poster=""></video>
+              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" poster="../img/img-poster-kv-01.png">
+                <source src="../img/video/kv-01.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="other-box">
               <div class="text-box">
@@ -67,7 +32,9 @@
           </li>
           <li class="slide-kv-item">
             <div class="video-box">
-              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" src="img/video/kv-02.mp4" poster=""></video>
+              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" poster="../img/img-poster-kv-02.png">
+                <source src="../img/video/kv-02.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="other-box">
               <div class="text-box">
@@ -81,7 +48,9 @@
           </li>
           <li class="slide-kv-item">
             <div class="video-box">
-              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" src="img/video/kv-03.mp4" poster=""></video>
+              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" poster="../img/img-poster-kv-03.png">
+                <source src="../img/video/kv-03.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="other-box">
               <div class="text-box">
@@ -95,7 +64,9 @@
           </li>
           <li class="slide-kv-item">
             <div class="video-box">
-              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" src="img/video/kv-04.mp4" poster=""></video>
+              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" poster="../img/img-poster-kv-04.png">
+                <source src="../img/video/kv-04.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="other-box">
               <div class="text-box">
@@ -115,7 +86,7 @@
           <div class="ani-box-scale step1"></div>
           <div class="ani-box-scale target">
             <div class="bg-full">
-              <div class="bg-box"><img src="img/img-management-01.jpg" alt=""></div>
+              <div class="bg-box"><img src="../img/img-management-01.jpg" alt=""></div>
             </div>
           </div>
           <div class="section-content">
@@ -128,16 +99,16 @@
                     ESG경영 실천을 위한 이해관계자 소통 강화, <br>
                     <span class="text-color">지속가능한 성장</span> 기반 마련
                   </p>
-                  <a href="#none" class="btn-link"><img src="img/svg/btn-link.svg" alt=""></a>
+                  <a href="#none" class="btn-link"><img src="../img/svg/btn-link.svg" alt=""></a>
                 </li>
                 <li class="panel-item">
                   <strong class="title">환경경영</strong>
                   <p class="text">
-                    더 나은 미래 더 나은 지구를 생각합니다 <br> 
+                    더 나은 미래 더 나은 지구를 생각합니다 <br>
                     시대적 요구와 환경에 대한 사회적 책임을 다하기 위해 <br>
                     전사적으로 <span class="text-color">지속가능한 성장</span> 기반 마련
                   </p>
-                  <a href="#none" class="btn-link"><img src="img/svg/btn-link.svg" alt=""></a>
+                  <a href="#none" class="btn-link"><img src="../img/svg/btn-link.svg" alt=""></a>
                 </li>
                 <li class="panel-item">
                   <strong class="title">윤리경영</strong>
@@ -147,7 +118,7 @@
                     윤리규범을 준수함으로써 <span class="text-color">지속성장가능 기업</span>으로 <br>
                     발전해 나가고자 노력해 왔습니다.
                   </p>
-                  <a href="#none" class="btn-link"><img src="img/svg/btn-link.svg" alt=""></a>
+                  <a href="#none" class="btn-link"><img src="../img/svg/btn-link.svg" alt=""></a>
                 </li>
                 <li class="panel-item">
                   <strong class="title">인권경영</strong>
@@ -156,7 +127,7 @@
                     인권, 다양성, 포용의 가치를 존중하며 <br>
                     경영활동에 반영하여 실천하고 있습니다.
                   </p>
-                  <a href="#none" class="btn-link"><img src="img/svg/btn-link.svg" alt=""></a>
+                  <a href="#none" class="btn-link"><img src="../img/svg/btn-link.svg" alt=""></a>
                 </li>
                 <li class="panel-item">
                   <strong class="title">나눔경영</strong>
@@ -165,7 +136,7 @@
                     따뜻한 기업, 나눔활동, 따뜻한 세상 - <br>
                     계열사별 특성을 살린 사회공헌활동을 지속합니다.
                   </p>
-                  <a href="#none" class="btn-link"><img src="img/svg/btn-link.svg" alt=""></a>
+                  <a href="#none" class="btn-link"><img src="../img/svg/btn-link.svg" alt=""></a>
                 </li>
               </ul>
             </div>
@@ -175,7 +146,7 @@
                 <div class="swiper-slide slide-management">
                   <div class="box-management">
                     <div class="item-management">
-                      <img src="img/img-management-01.jpg" alt="">
+                      <img src="../img/img-management-01.jpg" alt="">
                       <div class="text-info">
                         <span>ESG <br>Management</span>
                       </div>
@@ -186,7 +157,7 @@
                 <div class="swiper-slide slide-management">
                   <div class="box-management">
                     <div class="item-management">
-                      <img src="img/img-management-02.jpg" alt="">
+                      <img src="../img/img-management-02.jpg" alt="">
                       <div class="text-info">
                         <span>Environmental <br>management</span>
                       </div>
@@ -197,7 +168,7 @@
                 <div class="swiper-slide slide-management">
                   <div class="box-management">
                     <div class="item-management">
-                      <img src="img/img-management-03.jpg" alt="">
+                      <img src="../img/img-management-03.jpg" alt="">
                       <div class="text-info">
                         <span>Ethical <br>management</span>
                       </div>
@@ -208,7 +179,7 @@
                 <div class="swiper-slide slide-management">
                   <div class="box-management">
                     <div class="item-management">
-                      <img src="img/img-management-04.jpg" alt="">
+                      <img src="../img/img-management-04.jpg" alt="">
                       <div class="text-info">
                         <span>human rights <br>management</span>
                       </div>
@@ -219,7 +190,7 @@
                 <div class="swiper-slide slide-management">
                   <div class="box-management">
                     <div class="item-management">
-                      <img src="img/img-management-05.jpg" alt="">
+                      <img src="../img/img-management-05.jpg" alt="">
                       <div class="text-info">
                         <span>Sharing <br>Management</span>
                       </div>
@@ -228,7 +199,7 @@
                   </div>
                 </div>
               </div>
-              <div class="custom-controls">
+              <div class="custom-control">
                 <div class="swiper-button-prev custom-control-btn"></div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next custom-control-btn"></div>
@@ -238,20 +209,20 @@
         </div>
       </section>
       <section class="section sec3">
-        <div class="box-head">
+        <div class="box-head" data-animate="fadeInLeft" style="--i: 0.6">
           <div class="inner">
             <a href="#none" class="title-link">
               <strong>Our Business</strong>
             </a>
           </div>
         </div>
-        <div class="box-content">
+        <div class="box-content" data-animate="fadeInRight" style="--i: 0.5">
           <ul class="business-list">
             <li class="business-item">
               <a href="#none" class="business-link js-business-hover">
-                <div class="thumb"><img src="img/img-business-01.jpg" alt=""></div>
+                <div class="thumb"><img src="../img/img-business-01.jpg" alt=""></div>
                 <div class="info">
-                  <strong class="text-title">Fiber & <br>Petrochemical</strong>
+                  <strong class="text-title">Fiber &amp; <br>Petrochemical</strong>
                   <div class="other">
                     <div class="other-inner">
                       <span class="text-desc">최초의 길을 걸어온 프런티어 정신</span>
@@ -267,7 +238,7 @@
             </li>
             <li class="business-item">
               <a href="#none" class="business-link js-business-hover">
-                <div class="thumb"><img src="img/img-business-02.jpg" alt=""></div>
+                <div class="thumb"><img src="../img/img-business-02.jpg" alt=""></div>
                 <div class="info">
                   <strong class="text-title">Finance</strong>
                   <div class="other">
@@ -288,7 +259,7 @@
             </li>
             <li class="business-item">
               <a href="#none" class="business-link js-business-hover">
-                <div class="thumb"><img src="img/img-business-03.jpg" alt=""></div>
+                <div class="thumb"><img src="../img/img-business-03.jpg" alt=""></div>
                 <div class="info">
                   <strong class="text-title">Media</strong>
                   <div class="other">
@@ -307,9 +278,9 @@
             </li>
             <li class="business-item">
               <a href="#none" class="business-link js-business-hover">
-                <div class="thumb"><img src="img/img-business-04.jpg" alt=""></div>
+                <div class="thumb"><img src="../img/img-business-04.jpg" alt=""></div>
                 <div class="info">
-                  <strong class="text-title">Infrastructure <br>& Leisure</strong>
+                  <strong class="text-title">Infrastructure <br>&amp; Leisure</strong>
                   <div class="other">
                     <div class="other-inner">
                       <span class="text-desc">노력하는 이들이 더 나은 삶을 살 수 있도록</span>
@@ -325,9 +296,9 @@
             </li>
             <li class="business-item">
               <a href="#none" class="business-link js-business-hover">
-                <div class="thumb"><img src="img/img-business-05.jpg" alt=""></div>
+                <div class="thumb"><img src="../img/img-business-05.jpg" alt=""></div>
                 <div class="info">
-                  <strong class="text-title">Education & <br>Art</strong>
+                  <strong class="text-title">Education &amp; <br>Art</strong>
                   <div class="other">
                     <div class="other-inner">
                       <span class="text-desc">세상을 비추는 따뜻한 빛이 되겠습니다</span>
@@ -347,13 +318,13 @@
       <section class="section sec4">
         <div class="wrap-box js-wrap-zoom">
           <div class="bg-decor">
-            <img src="img/020820153.svg" alt="">
+            <img src="../img/bg-decor.svg" alt="">
           </div>
           <div class="ani-box-zoom step1"></div>
           <div class="ani-box-zoom target">
             <div class="bg-full">
-              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" poster="img/img-poster-social.png">
-                <source src="img/video/social-visual.mp4" type="video/mp4">
+              <video width="100%" loop="loop" autoplay muted="muted" playsinline="" poster="../img/img-poster-social.png">
+                <source src="../img/video/social-visual.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -365,25 +336,21 @@
               </div>
               <div class="info-area-bottom">
                 <p class="text js-text-ani2">태광은 '따뜻한 빛'이 되겠습니다 <br>따뜻한 기업, 나눔활동, 따뜻한 세상</p>
-                <button type="button" class="btn-contribution">태광 사회공헌</button>
+                <button type="button" class="btn-contribution">태광 사회공헌 <span class="arrow"></span></button>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section sec5" style="height: 1000px;"></section>
+      <!-- <section class="section sec5" style="height: 1000px;"></section> -->
 		</main>
-		<!-- END CONTAINER -->
+		<!-- // [D] CONTENTS -->
 
-    <footer></footer>
+		<!--[D] FOOTER -->
+@@include('./include/footer.html')
+		<!--// [D] FOOTER -->
 	</div>
 
-  <script src="js/libs/jquery.min.js"></script>
-  <script src="js/libs/swiper-bundle.min.js"></script>
-  <script src="js/libs/gsap.min.js"></script>
-  <script src="js/libs/ScrollTrigger.min.js"></script>
-  <script src="js/libs/ScrollToPlugin.min.js"></script>
-  <script src="js/app/common.js"></script>
-
+@@include('./include/script.html')
 </body>
 </html>

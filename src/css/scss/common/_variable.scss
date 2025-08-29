@@ -1,0 +1,62 @@
+$screen-xsm: 320px;
+$screen-sm: 828px;
+$screen-md: 1024px;
+$screen-lg: 1366px;
+$screen-xlg: 1920px;
+
+$black: #000;
+$white: #fff;
+
+// layout
+$screen-min: 320px; // Contents Minimum Size (iPhone SE)
+$screen-small: 375px;  // Mobile Guide (iPhone 7, 8, SE 2020, X, XS, 11 Pro)
+$screen-medium: 768px;  // Tablet
+$screen-large: 1024px; // Tablet landscape
+$screen-xlarge: 1280px; // PC
+$screen-max: 1920px; // Contents Maximum Size
+$screen-landscape-max: 825px; // Mobile landscape Max Size
+
+$width-inner-pc : 1196px;
+$height-header: 80px !default;
+$height-header-mo: 54px !default;
+$width-inner-pc : 1196px;
+// color
+$black: #000;
+$white: #fff;
+$primary: #8943f7;
+$secondary: #f45085;
+$positive: #4388f7;
+$negative: #dc3e4e;
+$black-bg: #1a1b20;
+
+$black-base: (
+  1: #121212,
+  2: #1C1D1F,
+  3: #2c2c2e,
+  4: #3A3A3C,
+  5: #48484B,
+  6: #747479,
+  7: #AFB1B7,
+  8: #E1E1E6
+);
+
+$purple-base: (
+  1: #45327F,
+  2: #6C2FCC,
+  3: #8943F7,
+  4: #AC71FA,
+  5: #D9B4FE,
+  6: #5c2da6
+);
+
+$etc-color: (
+  1: #6262d0,
+  3: #FB4242,
+  4: #5d5d61,
+  5: #DB4877,
+  6: #424348,
+  7: #366dc6,
+  8: #b0b3b8,
+  9: #91919b,
+  10: #50535b
+);

@@ -1,0 +1,51 @@
+.skip {
+  height: 0;
+}
+
+.skip a {
+  display: block;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  text-align: center;
+}
+
+.skip a:focus,
+#skip a:active {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  padding: 10px 0;
+  background: #000;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ANIMATE */
+[data-animate="fadeInLeft"] {
+  opacity: 0;
+  transition-delay: calc(var(--i, 0) * 1s);
+  transform: translateX(-300px);
+  transition: transform .3s cubic-bezier(0.04, 0.36, 1, 1);
+}
+[data-animate="fadeInRight"] {
+  opacity: 0;
+  transition-delay: calc(var(--i, 0) * 1s);
+  transform: translateX(300px);
+  transition: transform .4s cubic-bezier(0.04, 0.36, 1, 1);
+}
+
+.animate-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}

@@ -34,18 +34,18 @@
 
   var eventScrollKV = function() {
     const tl = gsap.timeline();
-  
+
     gsap.set('.slide-kv-item:not(:last-child)', { clipPath: 'inset(0 0 0 0)' });
-  
+
     tl.to('.slide-kv-item:not(:last-child)', {
       ease: 'none',
       clipPath: 'inset(0 0 100% 0)',
       stagger: 1,
       duration: 1
     })
-  
+
     ScrollTrigger.create({
-      trigger: '.key-visual',
+      trigger: '.slide-kv-list',
       start: 'top top',
       end: '+=500%',
       // end: () => "+=" + document.querySelector(".key-visual").offsetHeight + " bottom",
@@ -54,12 +54,12 @@
       markers: true,
       animation: tl
     });
-    
+
     gsap.set('.slide-kv-item', {
       zIndex: (i, target, targets) => targets.length - i
     });
   };
-  
+
   var scrollDownBTN = function() {
     $('.btn-scroll-down').on('click', function(e) {
       e.preventDefault();
@@ -107,7 +107,7 @@
         return `${c}px`;
       },
     });
-    
+
     tl.set($ani_box_target, {
       x: function () {
         return $ani_box_0.rect().x;
@@ -122,16 +122,16 @@
         return $ani_box_0.height();
       },
     });
-    
+
     tl.set($swiper_management, {
       opacity: 0,
       'pointer-events': 'none',
-      
+
     });
     tl.set($panel_swiper, {
       opacity: 0,
     });
-    
+
     tl.to($ani_box_target, {
       duration: 10,
       ease: 'none',
@@ -148,30 +148,30 @@
         return $ani_box_1.height();
       },
     }, '<');
-    
+
     tl.to($swiper_management, {
       opacity: 1,
     });
-    
+
     tl.to($panel_swiper, {
       opacity: 1,
     }, '<');
-    
+
     tl.set($swiper_management, {
       'pointer-events': 'auto',
     });
-    
+
     tl.to($ani_box_target, {
       opacity: 0,
     });
-    
+
     tl.to({}, {
       duration: 20,
       onUpdate: function () {}
     });
-    
+
     tl.to({}, {duration: 5});
-    
+
     const sct = ScrollTrigger.create({
       id: `sustainable-management`,// 마커 표시할때 이름 부여
       animation: tl,// 트윈 연결
@@ -191,14 +191,14 @@
     const $ani_box_0 = $wrap.find('.ani-box-zoom.step0');
     const $ani_box_1 = $wrap.find('.ani-box-zoom.step1');
     const $ani_box_target = $wrap.find('.ani-box-zoom.target');
-    
+
     const $box_content = $wrap.find('.box-content');
     const $info_area_bottom = $wrap.find('.info-area-bottom');
     const $text_1 = $wrap.find('.js-text-ani1');
     const $text_2 = $wrap.find('.js-text-ani2');
-    
+
     const tl = gsap.timeline();
-    
+
     tl.set($ani_box_target, {
       x: function () {
         return $ani_box_0.rect().x;
@@ -213,7 +213,7 @@
         return $ani_box_0.height();
       },
     });
-    
+
     tl.to($ani_box_target, {
       x: function () {
         return $ani_box_1.rect().x;
@@ -228,37 +228,37 @@
         return $ani_box_1.height();
       },
     });
-    
+
     tl.to($box_content, {
       opacity: 0,
     }, '<');
-    
+
     tl.to($text_1, {
       color: 'white',
       x: '-50',
     }, '<');
-    
+
     tl.to($info_area_bottom, {
       x: '50',
     }, '<');
-    
+
     tl.to($text_2, {
       color: 'white',
     }, '<');
-    
+
     tl.to($box_content, {
       opacity: 1,
       'z-index': 20,
     });
-    
+
     tl.to($text_1, {
       x: '0',
     }, '<');
-    
+
     tl.to($info_area_bottom, {
       x: '0',
     }, '<');
-    
+
     const sct = ScrollTrigger.create({
       id: 'social-contribution',// 마커 표시할때 이름 부여
       animation: tl,// 트윈 연결
@@ -285,12 +285,27 @@
       });
   };
 
+  var animateElement = function () {
+    var el = $('[data-animate]');
+    el.each(function () {
+      var $this = $(this),
+        thisOffSetTop = $this.offset().top,
+        windowScroll = $(window).scrollTop(),
+        scrollPoint = windowScroll + $(window).innerHeight();
+
+      if (thisOffSetTop < scrollPoint) {
+        $this.addClass('animate-active');
+      }
+    });
+  };
+
 
 	$(win).on('scroll', function () {
-
+    animateElement();
 	}).scroll();
 
 	$(win).on('load', function () {
+    animateElement();
     eventScrollKV();
     scrollDownBTN();
     enventScaleManagement();
