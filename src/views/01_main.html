@@ -3,15 +3,12 @@
   "list_title": "Home page : Main",
 })
 
-<!-- REF: https://www.taekwanggroup.co.kr/ko/main -->
-<!-- https://codepen.io/tutsplus/pen/abgxGaE -->
-
 <body class="" data-pagestatus="new : 2025.09.29">
 @@include('./include/skipnavigation.html')
 
-	<div class="wrap main_page">
+	<div class="wrap main-page">
 		<!--[D] HEADER -->
-    @@include('./include/header.html')
+    @@include('./include/header.html',{"headerTheme": ""})
 		<!--//[D] HEADER -->
 
 		<!-- [D] CONTENTS -->
@@ -84,7 +81,7 @@
           </li>
         </ul>
       </section>
-      <section class="section sec2">
+      <section class="section section-management">
         <div class="wrap-box js-wrap-scale">
           <div class="ani-box-scale step0"></div>
           <div class="ani-box-scale step1"></div>
@@ -212,7 +209,7 @@
           </div>
         </div>
       </section>
-      <section class="section sec3">
+      <section class="section section-business">
         <div class="box-head" data-animate="fadeInLeft" style="--i: 0.6">
           <div class="inner">
             <a href="#none" class="title-link">
@@ -319,8 +316,8 @@
           </ul>
         </div>
       </section>
-      <section class="section sec4">
-        <div class="wrap-box js-wrap-zoom">
+      <section class="section section-social">
+        <div class="wrap-box js-wrap-zoom-main">
           <div class="bg-decor">
             <img src="../img/bg-decor.svg" alt="">
           </div>

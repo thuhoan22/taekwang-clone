@@ -187,7 +187,7 @@
   };
 
   var eventZoomSocial = function() {
-    const $wrap = $('.js-wrap-zoom');
+    const $wrap = $('.js-wrap-zoom-main');
     const $ani_box_0 = $wrap.find('.ani-box-zoom.step0');
     const $ani_box_1 = $wrap.find('.ani-box-zoom.step1');
     const $ani_box_target = $wrap.find('.ani-box-zoom.target');
