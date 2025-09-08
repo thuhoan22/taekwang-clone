@@ -1,155 +1,124 @@
 ; (function (win, $) {
 
-  var eventZoomSocial = function() {
+  var eventZoomOverview = function() {
     const $wrap = $('.js-wrap-zoom-overview');
-    const $ani_box_0 = $wrap.find('.ani-box-zoom.step0');
-    const $ani_box_1 = $wrap.find('.ani-box-zoom.step1');
-    const $ani_box_target = $wrap.find('.ani-box-zoom.target');
-
-    const $box_content = $wrap.find('.box-content');
-    const $info_area_bottom = $wrap.find('.info-area-bottom');
-    const $text_1 = $wrap.find('.js-text-ani1');
+    const $aniBox_0 = $wrap.find('.ani-box-zoom.step0');
+    const $aniBox_1 = $wrap.find('.ani-box-zoom.step1');
+    const $aniBox_target = $wrap.find('.ani-box-zoom.target');
 
     const tl = gsap.timeline();
 
-    tl.set($ani_box_target, {
+    tl.set($aniBox_target, {
       x: function () {
-        return $ani_box_0.rect().x;
+        return $aniBox_0.rect().x;
       },
       y: function () {
-        return $ani_box_0.rect().y - $wrap.rect().y;
+        return $aniBox_0.rect().y - $wrap.rect().y;
       },
       width: function () {
-        return $ani_box_0.width();
+        return $aniBox_0.width();
       },
       height: function () {
-        return $ani_box_0.height();
+        return $aniBox_0.height();
       },
     });
 
-    tl.to($ani_box_target, {
+    tl.to($aniBox_target, {
       x: function () {
-        return $ani_box_1.rect().x;
+        return $aniBox_1.rect().x;
       },
       y: function () {
-        return $ani_box_1.rect().y - $wrap.rect().y;
+        return $aniBox_1.rect().y - $wrap.rect().y;
       },
       width: function () {
-        return $ani_box_1.width();
+        return $aniBox_1.width();
       },
       height: function () {
-        return $ani_box_1.height();
+        return $aniBox_1.height();
       },
     });
-
-    tl.to($box_content, {
-      opacity: 0,
-    }, '<');
-
-    tl.to($text_1, {
-      // color: 'white',
-      x: '-50',
-    }, '<');
-
-    tl.to($info_area_bottom, {
-      x: '50',
-    }, '<');
-
-    tl.to($box_content, {
-      opacity: 1,
-      'z-index': 20,
-    });
-
-    tl.to($text_1, {
-      x: '0',
-    }, '<');
-
-    tl.to($info_area_bottom, {
-      x: '0',
-    }, '<');
 
     const sct = ScrollTrigger.create({
-      id: 'kv-overview',// 마커 표시할때 이름 부여
-      animation: tl,// 트윈 연결
-      trigger: $wrap,// 트리거 지정
+      id: 'kv-overview',// Assign a name when displaying markers
+      animation: tl,// Connect to the tween
+      trigger: $wrap,// Set the trigger element
       end: 'bottom top',
       start: 'top top',
       scrub: 1,
       pin: true,
       toggleActions: 'play none none reverse',
-      toggleClass: 'scroll-trigger-active',// 트리거 작동 범위에서 클래스 부여
-      invalidateOnRefresh: true,// 리사이즈 대응
+      toggleClass: 'scroll-trigger-active',// Add class while trigger is active
+      invalidateOnRefresh: true,// Respond to resize events
     });
   };
 
-  var eventZoomOverview = function() {
-    const $wrap = $('.js-wrap-zoom');
-    const $target = $wrap.find('.position-box-target');
-    const $from = $wrap.find('.position-box-from');
-    const $to = $wrap.find('.position-box-to');
+  var eventSplitOverlay = function() {
+    const $wrap = $('.js-diagonal-overlay');
+    const $leftBox = $wrap.find('.overlay-box-left');
+    const $rightBox = $wrap.find('.overlay-box-right');
 
     const tl = gsap.timeline();
-    tl.fromTo($target, {
-      x: function () {
-        const tx = $from.rect().x - $wrap.rect().x;
-        return tx;
-      },
-      y: function () {
-        const ty = $from.rect().y - $wrap.rect().y;
-        return ty;
-      },
-      width: function () {
-        const tw = $from.outerWidth();
-        return tw;
-      },
-      height: function () {
-        const th = $from.outerHeight();
-        return th;
-      },
-      'border-radius': function () {
-        return $from.css('border-radius');
-      },
+
+    tl.fromTo($leftBox, {
+      x: 0,
     }, {
-      x: function () {
-        const tx = $to.rect().x - $wrap.rect().x;
-        return tx;
-      },
-      y: function () {
-        const ty = $to.rect().y - $wrap.rect().y;
-        return ty;
-      },
-      width: function () {
-        const tw = $to.outerWidth();
-        return tw;
-      },
-      height: function () {
-        const th = $to.outerHeight();
-        return th;
-      },
-      'border-radius': function () {
-        return $to.css('border-radius');
-      },
+      x: '-100%',
     });
 
+    tl.fromTo($rightBox, {
+      x: 0,
+    }, {
+      x: '100%',
+    }, '<');
+
     const sct = ScrollTrigger.create({
-      id: 'PositionBoxWrap_24bf017c',
+      id: 'diagonal-overlay',
       animation: tl,
       trigger: $wrap,
       end: 'bottom top',
       start: 'top top',
       scrub: 1,
       pin: true,
+      end: 'bottom top',
+      start: 'top top',
       toggleActions: 'play none none reverse',
       toggleClass: 'scroll-trigger-active',
       invalidateOnRefresh: true,
     });
   };
 
+  var changeBackground = function() {
+    const $wrap = $('.js-change-bg');
+    const $trigger = $wrap.find('.info-history');
+    const $textColor = $wrap.find('.js-text-color');
+
+    $wrap.css('background-color','white');
+
+    const tl = gsap.timeline();
+    tl.to($wrap, {
+      'background-color':'black'
+    });
+
+    const sct = ScrollTrigger.create({
+      id: 'change-bg',
+      animation: tl,
+      trigger: $trigger,
+      end: 'bottom top',
+      start: 'top top',
+      scrub: 1,
+      toggleActions: 'play none none reverse',
+      toggleClass: 'scroll-trigger-active',
+      invalidateOnRefresh: true,
+    })
+  };
+
 	$(win).on('scroll', function () {
 	}).scroll();
 
 	$(win).on('load', function () {
-    eventZoomSocial();
+    eventZoomOverview();
+    eventSplitOverlay();
+    changeBackground();
 	});
 
 })(window, window.jQuery);

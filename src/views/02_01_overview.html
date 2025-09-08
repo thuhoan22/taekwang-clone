@@ -15,19 +15,147 @@
 		<main id="container" class="container">
       <section class="key-visual">
         <div class="wrap-box js-wrap-zoom-overview">
-          <div class="ani-box-zoom step1"></div>
-          <div class="ani-box-zoom target">
-            <div class="bg-full">
-              <img src="../img/img-overview-01.jpg" alt="">
+          <div class="image-n-text">
+            <!-- [D] 1. Đặt `target` khớp vị trí và kích thước với `step0`
+                    2. Khi scroll, `target` di chuyển + scale để khớp với `step1`
+                    3. Nhờ đó, hình ảnh bên trong `target` tạo cảm giác đang được "zoom"
+            -->
+            <div class="ani-box-zoom step0"></div><!-- Mốc khởi đầu: position: relative để xác định tọa độ và kích thước ban đầu của animation (x, y, width, height) -->
+            <div class="ani-box-zoom step1"></div><!-- Mốc kết thúc: phủ toàn bộ vùng wrap cha, xác định tọa độ và kích thước kết thúc của animation zoom -->
+            <div class="ani-box-zoom target"><!-- Thực hiện hiệu ứng (zoom): Nó ban đầu giống step0, sau đó sẽ được animate để trở thành step1 khi cuộn trang -->
+              <div class="bg-full">
+                <img src="../img/img-overview-01.jpg" alt="">
+              </div>
+            </div>
+            <div class="box-content">
+              <div class="info-area-bottom">
+                <strong class="text js-text-ani1">Who We Are</strong>
+                <div class="btn"></div>
+              </div>
             </div>
           </div>
-          <div class="box-content">
-            <div class="ani-box-zoom step0"></div>
-            <div class="info-area-bottom">
-              <strong class="text js-text-ani1">Who We Are</strong>
-              <div class="btn"></div>
+        </div>
+      </section>
+      <section class="section section-diagonal-overlay">
+        <div class="wrap-box js-diagonal-overlay">
+          <div class="bg-box">
+            <img src="../img/img-overview-overlay.jpg" alt="">
+          </div>
+          <div class="overlay-box">
+            <div class="overlay-box-left"></div>
+            <div class="overlay-box-right"></div>
+          </div>
+          <div class="text-box">
+            <strong>고객의 일상속에서 <br>의미있는 가치를 더합니다</strong>
+          </div>
+        </div>
+      </section>
+      <section class="section section-company-info">
+        <div class="wrap-box js-change-bg">
+          <div class="info-overview">
+            <div class="box-right">
+              <strong>사람과 세상을 향한 진정한 가치, 태광그룹이 실현합니다.</strong>
+              <p>1950년 창립 이래 변화와 혁신을 바탕으로 섬유·석유화학, 금융, 미디어, 인프라·레저 등 다양한 분야를 아우르며 최고의 경쟁력을 갖춰나가고 있습니다.</p>
+              <p>앞으로도 핵심사업 강화 및 신사업 발굴을 통해 새로운 미래를 창조하는 ‘The Global Innovator’로 발전해 가겠습니다</p>
             </div>
           </div>
+          <div class="info-history">
+            <div class="box-left">
+              <strong class="text-title">Company <br>Info.</strong>
+            </div>
+            <div class="box-right">
+              <div class="grid-box">
+                <ul class="list">
+                  <li class="item">
+                    <span class="label">매출</span>
+                    <strong class="number">9.17 <span class="unit">조원</span></strong>
+                  </li>
+                  <li class="item">
+                    <span class="label">자산</span>
+                    <strong class="number">46.6 <span class="unit">조원</span></strong>
+                  </li>
+                  <li class="item">
+                    <span class="label">계열사</span>
+                    <strong class="number">22 <span class="unit">개</span></strong>
+                  </li>
+                  <li class="item">
+                    <span class="label">창립연도</span>
+                    <strong class="number">1950 <span class="unit">년</span></strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="info-vision">
+            <div class="text-wrap">
+              <div class="box-left">
+                <strong class="text-title">태광은 큰 숲입니다.</strong>
+              </div>
+              <div class="box-right">
+                <p class="text-desc">씨앗 하나, 자라서 나무가 되고 나무는 열매를 맺어 씨앗을 뿌리고 다시 그 씨앗들이 자라 나무가 될 때 비로소 ‘큰 숲’을 이룹니다.</p>
+              </div>
+            </div>
+            <div class="video-wrap">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/j42rIy1q1Os?si=iZ40ywtk45VtEPG7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-business">
+        <div class="box-head">
+          <div class="inner">
+            <div class="title-link">
+              <strong>Our Business.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="box-content">
+          <ul class="business-list">
+            <li class="business-item">
+              <div class="box-left">
+                <div class="text-box">
+                  <strong>Fiber & Petrochemical</strong>
+                  <p>최초의 길을 걸어온 프런티어 정신</p>
+                </div>
+                <div class="tag-box">
+                  <span>태광산업</span>
+                  <span>대한화섬</span>
+                  <span>태광화섬 유한공사</span>
+                </div>
+              </div>
+              <div class="box-right">
+                <div class="image-box">
+                  <img src="../img/img-business-01.jpg" alt="">
+                </div>
+                <p class="text">태광산업과 대한화섬은 국내 최초 스판덱스 생산, 섬유·석유화학 수직계열화 완성, 국내 최초 탄소섬유 상업생산 등 끊임없는 도전을 통해 최초의 길을 걷고 있습니다.</p>
+              </div>
+            </li>
+            <li class="business-item">
+              <div class="box-left">
+                <div class="text-box">
+                  <strong>Finance</strong>
+                  <p>고객 행복을 먼저 생각하는 흥국금융가족</p>
+                </div>
+                <div class="tag-box">
+                  <span>흥국생명</span>
+                  <span>흥국화재</span>
+                  <span>흥국증권</span>
+                  <span>흥국자산운용</span>
+                  <span>고려저축은행</span>
+                  <span>예가람저축은행</span>
+                </div>
+              </div>
+              <div class="box-right">
+                <div class="image-box">
+                  <img src="../img/img-business-02.jpg" alt="">
+                </div>
+                <p class="text">
+                  흥국금융가족은 보험, 증권, 자산운용, 저축은행을 아우르는 종합금융 서비스를 제공합니다. <br>
+                  고객 중심의 초우량 금융그룹으로 도약하기 위해 최선을 다하겠습니다.
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 		</main>

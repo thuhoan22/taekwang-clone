@@ -53,14 +53,14 @@
       font-size: 20px;
       font-weight: 700;
       line-height: 30px;
-      color: #fff;
+      color: $white;
     }
 
     .text-lg {
       flex: 1;
       max-width: 520px;
       padding-top: 130px;
-      color: #fff;
+      color: $white;
       text-align: right;
       font-size: 60px;
       font-weight: 700;
@@ -168,13 +168,13 @@
     .swiper-button-prev {
       &:after {
         font-size: inherit;
-        color: #000;
+        color: $black;
       }
     }
     .swiper-button-next {
       &:after {
         font-size: inherit;
-        color: #000;
+        color: $black;
       }
     }
     .swiper-pagination {
@@ -189,7 +189,7 @@
       box-sizing: border-box;
       &-current {
         min-width: 14px;
-        color: #000;
+        color: $black;
       }
       &-total {
         min-width: 14px;
@@ -249,7 +249,7 @@
         font-size: 34px;
         font-weight: 700;
         line-height: 38px;
-        color: #fff;
+        color: $white;
         text-transform: capitalize;
       }
     }
@@ -324,7 +324,7 @@
       font-weight: 700;
       line-height: 1;
       letter-spacing: -3.48px;
-      color: #000;
+      color: $black;
       &:after {
         position: absolute;
         top: 0;
@@ -377,7 +377,7 @@
           font-weight: 700;
           line-height: 44px;
           letter-spacing: -2px;
-          color: #fff;
+          color: $white;
           white-space: nowrap;
         }
         .text-desc {
@@ -387,17 +387,17 @@
           font-size: 15px;
           line-height: 24px;
           letter-spacing: -0.6px;
-          color: #fff;
+          color: $white;
         }
         .label {
           padding: 5px 8px;
-          border: 1px solid #fff6;
+          border: 1px solid $white;
           border-radius: 6px;
           font-weight: 400;
           font-size: 13px;
           line-height: 18px;
           letter-spacing: -0.4px;
-          color: #fff;
+          color: $white;
           &-area {
             display: flex;
             margin-top: 20px;
@@ -461,7 +461,7 @@
           font-weight: 700;
           font-size: 128px;
           line-height: 1;
-          color: #000;
+          color: $black;
         }
       }
       &-bottom {
@@ -472,7 +472,7 @@
           font-size: 18px;
           line-height: 29px;
           letter-spacing: -0.7px;
-          color: #000;
+          color: $black;
         }
       }
     }
@@ -483,12 +483,12 @@
     position: relative;
     margin-top: 32px;
     padding: 10px 20px 10px 16px;
-    background-color: #fff;
+    background-color: $white;
     border: 1px solid #b4985a;
     border-radius: 100px;
     font-weight: 700;
     font-size: 13px;
-    color: #000;
+    color: $black;
     .arrow {
       position: relative;
       width: 10px;
@@ -500,7 +500,7 @@
         top: 50%;
         left: 0;
         width: 100%;
-        border-top: 1px solid #000;
+        border-top: 1px solid $black;
         transform: translateY(-50%);
         content: '';
       }
@@ -510,8 +510,8 @@
         right: 0;
         width: 8px;
         height: 8px;
-        border-right: 1px solid #000;
-        border-top: 1px solid #000;
+        border-right: 1px solid $black;
+        border-top: 1px solid $black;
         transform: translateY(-50%) rotate(45deg);
         content: '';
       }

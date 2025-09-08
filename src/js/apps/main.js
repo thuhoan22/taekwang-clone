@@ -35,29 +35,31 @@
   var eventScrollKV = function() {
     const tl = gsap.timeline();
 
-    gsap.set('.slide-kv-item:not(:last-child)', { clipPath: 'inset(0 0 0 0)' });
+    if($('.js-key-visual-main').length) {
+      gsap.set('.slide-kv-item:not(:last-child)', { clipPath: 'inset(0 0 0 0)' });
 
-    tl.to('.slide-kv-item:not(:last-child)', {
-      ease: 'none',
-      clipPath: 'inset(0 0 100% 0)',
-      stagger: 1,
-      duration: 1
-    })
+      tl.to('.slide-kv-item:not(:last-child)', {
+        ease: 'none',
+        clipPath: 'inset(0 0 100% 0)',
+        stagger: 1,
+        duration: 1
+      })
 
-    ScrollTrigger.create({
-      trigger: '.slide-kv-list',
-      start: 'top top',
-      end: '+=500%',
-      // end: () => "+=" + document.querySelector(".key-visual").offsetHeight + " bottom",
-      scrub: true,
-      pin: true,
-      markers: true,
-      animation: tl
-    });
+      ScrollTrigger.create({
+        trigger: '.slide-kv-list',
+        start: 'top top',
+        end: '+=500%',
+        // end: () => "+=" + document.querySelector(".key-visual").offsetHeight + " bottom",
+        scrub: true,
+        pin: true,
+        markers: true,
+        animation: tl
+      });
 
-    gsap.set('.slide-kv-item', {
-      zIndex: (i, target, targets) => targets.length - i
-    });
+      gsap.set('.slide-kv-item', {
+        zIndex: (i, target, targets) => targets.length - i
+      });
+    }
   };
 
   var scrollDownBTN = function() {
@@ -89,15 +91,15 @@
 
   var enventScaleManagement = function() {
     const $wrap = $('.js-wrap-scale');
-    const $ani_box_0 = $wrap.find('.ani-box-scale.step0');
-    const $ani_box_1 = $wrap.find('.ani-box-scale.step1');
-    const $ani_box_target = $wrap.find('.ani-box-scale.target');
-    const $swiper_management = $wrap.find('.swiper-management');
-    const $panel_swiper = $wrap.find('.js-panel-swiper');
+    const $aniBox_0 = $wrap.find('.ani-box-scale.step0');
+    const $aniBox_1 = $wrap.find('.ani-box-scale.step1');
+    const $aniBox_target = $wrap.find('.ani-box-scale.target');
+    const $swiperManagement = $wrap.find('.swiper-management');
+    const $panelSwiper = $wrap.find('.js-panel-swiper');
 
     const tl = gsap.timeline();
 
-    tl.set($ani_box_0, {
+    tl.set($aniBox_0, {
       width: function () {
         const c = Math.hypot($($wrap).width(), $($wrap).height());
         return `${c}px`;
@@ -108,60 +110,60 @@
       },
     });
 
-    tl.set($ani_box_target, {
+    tl.set($aniBox_target, {
       x: function () {
-        return $ani_box_0.rect().x;
+        return $aniBox_0.rect().x;
       },
       y: function () {
-        return $ani_box_0.rect().y - $wrap.rect().y;
+        return $aniBox_0.rect().y - $wrap.rect().y;
       },
       width: function () {
-        return $ani_box_0.width();
+        return $aniBox_0.width();
       },
       height: function () {
-        return $ani_box_0.height();
+        return $aniBox_0.height();
       },
     });
 
-    tl.set($swiper_management, {
+    tl.set($swiperManagement, {
       opacity: 0,
       'pointer-events': 'none',
 
     });
-    tl.set($panel_swiper, {
+    tl.set($panelSwiper, {
       opacity: 0,
     });
 
-    tl.to($ani_box_target, {
+    tl.to($aniBox_target, {
       duration: 10,
       ease: 'none',
       x: function () {
-        return $ani_box_1.rect().x;
+        return $aniBox_1.rect().x;
       },
       y: function () {
-        return $ani_box_1.rect().y - $wrap.rect().y;
+        return $aniBox_1.rect().y - $wrap.rect().y;
       },
       width: function () {
-        return $ani_box_1.width();
+        return $aniBox_1.width();
       },
       height: function () {
-        return $ani_box_1.height();
+        return $aniBox_1.height();
       },
     }, '<');
 
-    tl.to($swiper_management, {
+    tl.to($swiperManagement, {
       opacity: 1,
     });
 
-    tl.to($panel_swiper, {
+    tl.to($panelSwiper, {
       opacity: 1,
     }, '<');
 
-    tl.set($swiper_management, {
+    tl.set($swiperManagement, {
       'pointer-events': 'auto',
     });
 
-    tl.to($ani_box_target, {
+    tl.to($aniBox_target, {
       opacity: 0,
     });
 
@@ -188,48 +190,50 @@
 
   var eventZoomSocial = function() {
     const $wrap = $('.js-wrap-zoom-main');
-    const $ani_box_0 = $wrap.find('.ani-box-zoom.step0');
-    const $ani_box_1 = $wrap.find('.ani-box-zoom.step1');
-    const $ani_box_target = $wrap.find('.ani-box-zoom.target');
+    const $aniBox_0 = $wrap.find('.ani-box-zoom.step0');
+    const $aniBox_1 = $wrap.find('.ani-box-zoom.step1');
+    const $aniBox_target = $wrap.find('.ani-box-zoom.target');
 
-    const $box_content = $wrap.find('.box-content');
-    const $info_area_bottom = $wrap.find('.info-area-bottom');
+    const $boxContent = $wrap.find('.box-content');
+    const $infoAreaBottom = $wrap.find('.info-area-bottom');
     const $text_1 = $wrap.find('.js-text-ani1');
     const $text_2 = $wrap.find('.js-text-ani2');
 
     const tl = gsap.timeline();
 
-    tl.set($ani_box_target, {
+    // Set the target to exactly match the position and size of step0.
+    tl.set($aniBox_target, {
       x: function () {
-        return $ani_box_0.rect().x;
+        return $aniBox_0.rect().x;
       },
       y: function () {
-        return $ani_box_0.rect().y - $wrap.rect().y;
+        return $aniBox_0.rect().y - $wrap.rect().y;
       },
       width: function () {
-        return $ani_box_0.width();
+        return $aniBox_0.width();
       },
       height: function () {
-        return $ani_box_0.height();
+        return $aniBox_0.height();
       },
     });
 
-    tl.to($ani_box_target, {
+    // Move and scale the target to exactly match the position and size of step1.
+    tl.to($aniBox_target, {
       x: function () {
-        return $ani_box_1.rect().x;
+        return $aniBox_1.rect().x;
       },
       y: function () {
-        return $ani_box_1.rect().y - $wrap.rect().y;
+        return $aniBox_1.rect().y - $wrap.rect().y;
       },
       width: function () {
-        return $ani_box_1.width();
+        return $aniBox_1.width();
       },
       height: function () {
-        return $ani_box_1.height();
+        return $aniBox_1.height();
       },
     });
 
-    tl.to($box_content, {
+    tl.to($boxContent, {
       opacity: 0,
     }, '<');
 
@@ -238,7 +242,7 @@
       x: '-50',
     }, '<');
 
-    tl.to($info_area_bottom, {
+    tl.to($infoAreaBottom, {
       x: '50',
     }, '<');
 
@@ -246,7 +250,7 @@
       color: 'white',
     }, '<');
 
-    tl.to($box_content, {
+    tl.to($boxContent, {
       opacity: 1,
       'z-index': 20,
     });
@@ -255,21 +259,21 @@
       x: '0',
     }, '<');
 
-    tl.to($info_area_bottom, {
+    tl.to($infoAreaBottom, {
       x: '0',
     }, '<');
 
     const sct = ScrollTrigger.create({
-      id: 'social-contribution',// 마커 표시할때 이름 부여
-      animation: tl,// 트윈 연결
-      trigger: $wrap,// 트리거 지정
+      id: 'social-contribution',// Assign a name when displaying markers
+      animation: tl,// Connect to the tween
+      trigger: $wrap,// Set the trigger element
       end: 'bottom top',
       start: 'top top',
       scrub: 1,
       pin: true,
       toggleActions: 'play none none reverse',
-      toggleClass: 'scroll-trigger-active',// 트리거 작동 범위에서 클래스 부여
-      invalidateOnRefresh: true,// 리사이즈 대응
+      toggleClass: 'scroll-trigger-active',// Add class while trigger is active
+      invalidateOnRefresh: true,// Respond to resize events
     });
   };
 

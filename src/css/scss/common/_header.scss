@@ -50,7 +50,7 @@
           width: auto;
           font-size: 16px;
           font-weight: 700;
-          color: #fff;
+          color: $white;
           text-decoration: none;
           transition: transform 0.5s ease;
           transform: translateY(0) translateZ(0);
@@ -60,7 +60,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #fff;
+            background-color: $white;
             transition: 0.4s ease-in;
             content: "";
           }
@@ -72,7 +72,7 @@
   &.dark {
     .gnb-item {
       .txt-link {
-        color: #000;
+        color: $black;
       }
     }
     .logo {
