@@ -1,0 +1,56 @@
+.core-value-page {
+  .key-visual {
+    height: 100vh;
+    .text-box {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      transform: translate(-50%, -50%);
+    }
+    .text-title {
+      font-size: 90px;
+      font-weight: 700;
+      line-height: 1;
+      color: $white;
+    }
+    .ani-zoom-out {
+      &.step0 {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      &.step1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 0;
+        width: 90%;
+        height: 90%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      &.target {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+    .bg-full {
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

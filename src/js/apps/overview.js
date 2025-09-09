@@ -90,7 +90,6 @@
   var changeBackground = function() {
     const $wrap = $('.js-change-bg');
     const $trigger = $wrap.find('.info-history');
-    const $textColor = $wrap.find('.js-text-color');
 
     $wrap.css('background-color','white');
 
@@ -112,6 +111,67 @@
     })
   };
 
+  var cursorCustom = function(moving_scale_x = 1, moving_scale_y = 1) {
+    $('.js-cursor').each(function () {
+      const $cursorArea = $(this);
+      const $cursorCustom = $cursorArea.find('.cursor-custom');
+      const $cursorOrigin = $cursorArea.find('.cursor-origin');
+
+      $cursorArea.off('mouseenter mouseleave mousemove');
+
+      $cursorArea.on('mouseenter', function (evt) {
+        const pos = getPos(evt, $cursorArea, $cursorOrigin, $cursorCustom);
+
+        gsap.to($cursorCustom, {
+          x: pos.x,
+          y: pos.y,
+          duration: 0,
+          overwrite: 'auto',
+        });
+
+        gsap.to($cursorCustom, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.3,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
+      });
+
+      $cursorArea.on('mouseleave', function () {
+        gsap.to($cursorCustom, {
+          scale: 0,
+          opacity: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
+      });
+
+      $cursorArea.on('mousemove', function (evt) {
+        const pos = getPos(evt, $cursorArea, $cursorOrigin, $cursorCustom);
+
+        gsap.to($cursorCustom, {
+          x: pos.x,
+          y: pos.y,
+          duration: 0.2,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
+      });
+    });
+
+    function getPos(evt, $cursorArea, $cursorOrigin, $cursorCustom) {
+      const rect = $cursorOrigin[0].getBoundingClientRect();
+      const areaRect = $cursorArea[0].getBoundingClientRect();
+
+      const x = (rect.x - areaRect.x) + ((evt.clientX - rect.x) * moving_scale_x) - ($cursorCustom.outerWidth() / 2);
+      const y = (rect.y - areaRect.y) + ((evt.clientY - rect.y) * moving_scale_y) - ($cursorCustom.outerHeight() / 2);
+
+      return { x, y };
+    }
+  };
+
 	$(win).on('scroll', function () {
 	}).scroll();
 
@@ -119,6 +179,7 @@
     eventZoomOverview();
     eventSplitOverlay();
     changeBackground();
+    cursorCustom();
 	});
 
 })(window, window.jQuery);
