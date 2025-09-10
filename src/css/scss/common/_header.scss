@@ -5,6 +5,9 @@
   left: 0;
   height: 88px;
   z-index: 9999;
+  background-color: transparent;
+  transform: translateY(0);
+  transition: all .4s ease-in-out;
 
   .inner {
     height: 100%;
@@ -70,6 +73,31 @@
   }
 
   &.dark {
+    .gnb-item {
+      .txt-link {
+        color: $black;
+      }
+    }
+    .logo {
+      .default {
+        display: block;
+      }
+      .white {
+        display: none;
+      }
+    }
+  }
+
+  &.is-up {
+    transform: translateY(-100%);
+  }
+
+  // &.is-down {
+  //   transform: translateY(0);
+  // }
+
+  &.has-bg {
+    background-color: $white;
     .gnb-item {
       .txt-link {
         color: $black;

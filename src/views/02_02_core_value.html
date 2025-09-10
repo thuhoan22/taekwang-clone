@@ -8,12 +8,12 @@
 
 	<div class="wrap core-value-page">
 		<!--[D] HEADER -->
-    @@include('./include/header.html')
+    @@include('./include/header.html',{"headerTheme": ""})
 		<!--//[D] HEADER -->
 
 		<!-- [D] CONTENTS -->
 		<main id="container" class="container">
-      <section class="key-visual">
+      <section class="key-visual js-kv-header">
         <div class="wrap-box js-zoom-coreValue">
           <div class="ani-zoom-out step0"></div>
           <div class="ani-zoom-out step1"></div>
@@ -27,7 +27,39 @@
           </div>
         </div>
       </section>
-      <section class="section" style="height: 500px;"></section>
+      <section class="section section-diagonal-overlay">
+        <div class="wrap-box js-diagonal-overlay">
+          <div class="bg-box">
+            <img src="../img/img-core-value-overlay.jpg" alt="">
+          </div>
+          <div class="overlay-box">
+            <div class="overlay-box-left"></div>
+            <div class="overlay-box-right"></div>
+          </div>
+          <div class="text-box">
+            <strong>5C</strong>
+          </div>
+        </div>
+      </section>
+      <section class="section section-scale-up">
+        <div class="wrap-box">
+          <div class="text-box">
+            <strong class="text-title">
+              태광그룹은 5C를 통해 <br>
+              변화와 혁신을 추구합니다.
+            </strong>
+          </div>
+          <div class="ani-scale-up">
+            <div class="bg-full">
+              <img src="../img/img-core-value-01.jpg" alt="">
+            </div>
+            <strong class="text-title">
+              태광그룹은 5C를 통해 <br>
+              변화와 혁신을 추구합니다.
+            </strong>
+          </div>
+        </div>
+      </section>
 		</main>
 		<!-- // [D] CONTENTS -->
 
