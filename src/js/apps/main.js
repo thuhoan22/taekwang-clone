@@ -128,7 +128,6 @@
     tl.set($swiperManagement, {
       opacity: 0,
       'pointer-events': 'none',
-
     });
     tl.set($panelSwiper, {
       opacity: 0,

@@ -41,31 +41,35 @@
   };
 
   var eventSplitOverlay = function() {
-    const $wrap = $('.js-diagonal-overlay');
-    if (!$wrap.length) return;
+    const $overlays = $('.js-diagonal-overlay');
+    if (!$overlays.length) return;
 
-    const $leftBox = $wrap.find('.overlay-box-left');
-    const $rightBox = $wrap.find('.overlay-box-right');
+    $overlays.each(function () {
+      const $wrap = $(this);
+      const $leftBox = $wrap.find('.overlay-box-left');
+      const $rightBox = $wrap.find('.overlay-box-right');
 
-    if (!$leftBox.length || !$rightBox.length) return;
+      if (!$leftBox.length || !$rightBox.length) return;
 
-    const tl = gsap.timeline();
+      const tl = gsap.timeline();
 
-    tl.fromTo($leftBox, { x: 0 }, { x: '-100%' });
-    tl.fromTo($rightBox, { x: 0 }, { x: '100%' }, '<');
+      tl.fromTo($leftBox, { x: 0 }, { x: '-100%' });
+      tl.fromTo($rightBox, { x: 0 }, { x: '100%' }, '<');
 
-    const sct = ScrollTrigger.create({
-      id: 'diagonal-overlay',
-      animation: tl,
-      trigger: $wrap,
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1,
-      pin: true,
-      toggleActions: 'play none none reverse',
-      toggleClass: 'scroll-trigger-active',
-      invalidateOnRefresh: true,
+      const sct = ScrollTrigger.create({
+        id: 'diagonal-overlay',
+        animation: tl,
+        trigger: $wrap,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
+        pin: true,
+        toggleActions: 'play none none reverse',
+        toggleClass: 'scroll-trigger-active',
+        invalidateOnRefresh: true,
+      });
     });
+    ScrollTrigger.refresh();
   };
 
   var changeBackground = function() {
@@ -158,6 +162,8 @@
     }
   };
 
+  win.initDiagonalOverlay = eventSplitOverlay;
+
   // INIT
 	$(win).on('scroll', function () {
     // Optional: future scroll logic
@@ -169,5 +175,9 @@
     changeBackground();
     cursorCustom();
 	});
+
+  // $(document).ready(function () {
+  //   eventSplitOverlay();
+  // });
 
 })(window, window.jQuery);
