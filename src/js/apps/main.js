@@ -235,6 +235,12 @@
     tl.to($boxContent, {
       opacity: 0,
     }, '<');
+    // [NOTE]
+    // '<': Starts at the same time as the previous animation
+    // '>': Starts immediately after the previous animation ends
+    // '+=0.5': Starts 0.5 seconds after the previous animation ends
+    // '-=0.2': Starts 0.2 seconds before the default start time
+    // 'label': Starts at a specific label defined in the timeline
 
     tl.to($text_1, {
       color: 'white',
