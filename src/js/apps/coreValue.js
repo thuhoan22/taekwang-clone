@@ -97,7 +97,7 @@
     });
 
     tl.fromTo($textBlack, {
-    opacity: 1,
+      opacity: 1,
       y: 0,
     }, {
       opacity: 0,
@@ -181,7 +181,30 @@
   };
 
   var eventSlideUp = function() {
+    const $wrap = $('.section-slide-up');
+    if (!$wrap.length) return;
 
+    const $textFade = $wrap.find('.js-fade-text-slide');
+    const $slideList = $wrap.find('.slide-list');
+
+    tl = gsap.timeline();
+
+    tl.to($textFade, {
+      opacity: 0.5,
+    });
+
+    const sct = ScrollTrigger.create({
+      id: 'scale-up',
+      animation: tl,
+      trigger: $slideList,
+      start: 'top 20%',
+      end: 'top top',
+      scrub: 1,
+      pin: true,
+      toggleActions: 'play none none reverse',
+      toggleClass: 'scroll-trigger-active',
+      invalidateOnRefresh: true,
+    });
   };
 
 	$(win).on('scroll', function () {
