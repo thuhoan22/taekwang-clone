@@ -88,54 +88,54 @@
             <div class="ani-slide step1"></div>
             <div class="ani-slide target">
               <div class="bg-full"><img src="../img/img-business-page-02.jpg" alt=""></div>
-              <div class="swiper-area">
-                <div class="swiper swiper-vision swiper-vision-bg">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide slide-vision">
-                      <span class="thumb"><img src="../img/img-business-page-02.jpg" alt=""></span>
-                    </div>
-                    <div class="swiper-slide slide-vision">
-                      <span class="thumb"><img src="../img/img-business-page-03.jpg" alt=""></span>
-                    </div>
-                    <div class="swiper-slide slide-vision">
-                      <span class="thumb"><img src="../img/img-business-page-04.jpg" alt=""></span>
+              <div class="swiper-full">
+                <div class="swiper-area js-swiper-custom">
+                  <div class="swiper swiper-vision">
+                    <div class="swiper-wrapper">
+                      @@loop("./include/slide-vision.html", [
+                        {
+                          "imgFull": '../img/img-business-page-02.jpg',
+                          "title": "Teakwang <br>Industrial",
+                          "otherNumber": "01",
+                          "otherTitle": "태광산업",
+                          "otherSubTitle": "대한민국 대표 첨단소재기업",
+                          "otherDesc": "1950년 설립되어 국내 최초로 스판덱스 등을 생산한 대한민국 대표 첨단소재 기업입니다. 1995년 PTA 공장 준공으로 섬유·석유화학 수직계열화를 실현했습니다.",
+                          "highlight1": "1950.10.25 <br>설립",
+                          "highlight2": "석유·섬유 수직계열화 완성",
+                          "highlight3": "국내 최초 스판덱스 생산",
+                          "idxCurrent": "1"
+                        },
+                        {
+                          "imgFull": '../img/img-business-page-03.jpg',
+                          "title": "Daehan <br>Synthetic Fiber",
+                          "otherNumber": "02",
+                          "otherTitle": "대한화섬",
+                          "otherSubTitle": "고객과 함께 성장하는 화섬업계 선두주자 대한화섬입니다",
+                          "otherDesc": "1968년 국내 최초로 폴리에스테르를 생산한 이후, 국내외에 고품질의 폴리에스테르를 공급하고 있습니다.",
+                          "highlight1": "1963.10.22 <br>설립",
+                          "highlight2": "폴리에스터 필라멘트사",
+                          "highlight3": "대표 브랜드 ACEPORA",
+                          "idxCurrent": "2"
+                        },
+                        {
+                          "imgFull": '../img/img-business-page-04.jpg',
+                          "title": "Taekwang <br>Synthetic Fiber",
+                          "otherNumber": "03",
+                          "otherTitle": "태광화섬(상숙) 유한공사",
+                          "otherSubTitle": "태광산업 해외시장 개척을 위한 발판",
+                          "otherDesc": "2003년 태광산업 해외시장 개척을 위해 설립되었습니다. 다양한 물성의 스판덱스를 생산하고 있습니다.",
+                          "highlight1": "2003.12.12 <br>설립",
+                          "highlight2": "태광산업 해외시장 개척",
+                          "highlight3": "스판덱스 생산",
+                          "idxCurrent": "3"
+                        },
+                      ])
                     </div>
                   </div>
-                </div>
-                <div class="swiper swiper-vision swiper-vision-content">
-                  <div class="swiper-wrapper">
-                    @@loop("./include/slide-vision.html", [
-                      {
-                        "title": "Teakwang <br>Industrial",
-                        "otherNumber": "01",
-                        "otherTitle": "태광산업",
-                        "otherSubTitle": "대한민국 대표 첨단소재기업",
-                        "otherDesc": "1950년 설립되어 국내 최초로 스판덱스 등을 생산한 대한민국 대표 첨단소재 기업입니다. 1995년 PTA 공장 준공으로 섬유·석유화학 수직계열화를 실현했습니다.",
-                        "highlight1": "1950.10.25 <br>설립",
-                        "highlight2": "석유·섬유 수직계열화 완성",
-                        "highlight3": "국내 최초 스판덱스 생산"
-                      },
-                      {
-                        "title": "Daehan <br>Synthetic Fiber",
-                        "otherNumber": "02",
-                        "otherTitle": "대한화섬",
-                        "otherSubTitle": "고객과 함께 성장하는 화섬업계 선두주자 대한화섬입니다",
-                        "otherDesc": "1968년 국내 최초로 폴리에스테르를 생산한 이후, 국내외에 고품질의 폴리에스테르를 공급하고 있습니다.",
-                        "highlight1": "1963.10.22 <br>설립",
-                        "highlight2": "폴리에스터 필라멘트사",
-                        "highlight3": "대표 브랜드 ACEPORA"
-                      },
-                      {
-                        "title": "Taekwang <br>Synthetic Fiber",
-                        "otherNumber": "03",
-                        "otherTitle": "태광화섬(상숙) 유한공사",
-                        "otherSubTitle": "태광산업 해외시장 개척을 위한 발판",
-                        "otherDesc": "2003년 태광산업 해외시장 개척을 위해 설립되었습니다. 다양한 물성의 스판덱스를 생산하고 있습니다.",
-                        "highlight1": "2003.12.12 <br>설립",
-                        "highlight2": "태광산업 해외시장 개척",
-                        "highlight3": "스판덱스 생산"
-                      },
-                    ])
+                  <div class="pagination-text js-pagination-text">
+                    <span class="text is-active">태광산업</span>
+                    <span class="text">대한화섬</span>
+                    <span class="text">태광화섬(상숙) 유한공사</span>
                   </div>
                 </div>
               </div>
@@ -154,3 +154,16 @@
 @@include('./include/script.html')
 </body>
 </html>
+
+<!-- for (let i = 1; i < 9999; i++) {
+  clearInterval(i);
+}
+
+// 2. Dừng autoplay (nếu chưa bị dừng)
+Array.from(document.querySelectorAll('*')).forEach(el => {
+  const swiper = el.swiper;
+  if (swiper?.autoplay?.running) {
+    swiper.autoplay.stop();
+    console.log('✅ Đã dừng autoplay:', swiper);
+  }
+}); -->

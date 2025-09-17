@@ -1,28 +1,40 @@
 <div class="swiper-slide slide-vision">
-  <div class="text-area">
-    <strong class="text-title">@@title</strong>
-    <div class="box-other">
-      <div class="other-head">
-        <span class="other-number">@@otherNumber</span>
-        <strong class="other-title">@@otherTitle</strong>
-      </div>
-      <div class="other-content">
-        <strong class="other-sub-title">@@otherSubTitle</strong>
-        <p class="other-desc">@@otherDesc</p>
-        <ul class="highlight-list">
-          <li class="highlight-item">
-            <span class="icon"><img src="../img/svg/icon-building.svg" alt=""></span>
-            <span class="text">@@highlight1</span>
-          </li>
-          <li class="highlight-item">
-            <span class="icon"><img src="../img/svg/icon-home.svg" alt=""></span>
-            <span class="text">@@highlight2</span>
-          </li>
-          <li class="highlight-item">
-            <span class="icon"><img src="../img/svg/icon-reward.svg" alt=""></span>
-            <span class="text">@@highlight3</span>
-          </li>
-        </ul>
+  <div class="slide-vision-item" data-swiper-parallax-x="100%">
+    <span class="thumb" data-swiper-parallax-x="-10%"><img src="@@imgFull" alt=""></span>
+    <div class="text-area">
+      <strong class="text-title">@@title</strong>
+      <div class="box-other">
+        <div class="other-head">
+          <span class="other-number">@@otherNumber</span>
+          <strong class="other-title">@@otherTitle</strong>
+          <div class="custom-control">
+            <div class="swiper-button-prev custom-control-btn"></div>
+            <div class="custom-pagination">
+              <div class="text current">@@idxCurrent</div>
+              <div class="text">/</div>
+              <div class="text">3</div>
+            </div>
+            <div class="swiper-button-next custom-control-btn"></div>
+          </div>
+        </div>
+        <div class="other-content">
+          <strong class="other-sub-title">@@otherSubTitle</strong>
+          <p class="other-desc">@@otherDesc</p>
+          <ul class="highlight-list">
+            <li class="highlight-item">
+              <span class="icon"><img src="../img/svg/icon-building.svg" alt=""></span>
+              <span class="text">@@highlight1</span>
+            </li>
+            <li class="highlight-item">
+              <span class="icon"><img src="../img/svg/icon-home.svg" alt=""></span>
+              <span class="text">@@highlight2</span>
+            </li>
+            <li class="highlight-item">
+              <span class="icon"><img src="../img/svg/icon-reward.svg" alt=""></span>
+              <span class="text">@@highlight3</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

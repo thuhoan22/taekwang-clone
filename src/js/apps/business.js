@@ -120,37 +120,52 @@
     });
   };
 
-  var swiperSlideVision = new Swiper('.swiper-vision-bg', {
-		slidesPerView: 1,
-    // loop: true,
-    // autoplay: {
-    //   delay: 2500,
-    //   disableOnInteraction: false,
-    // },
-    // navigation: {
-    //   nextEl: '.swiper-vision .swiper-button-next',
-    //   prevEl: '.swiper-vision .swiper-button-prev',
-    // },
-    // pagination: {
-    //   el: '.swiper-vision .swiper-pagination',
-    //   type: 'fraction',
-    //   formatFractionCurrent: function (number) {
-    //     return number;
-    //   }
-    // },
-    on: {
-      init: function (swiper) {
-        // updatePaginationNum(swiper);
+  var swiperSlideVision = function() {
+    const $swiperArea = $('.js-swiper-custom');
+    const $thisSwiper = $swiperArea.find('.swiper-vision')[0];
+    const $swiperParents = $('.swiper-full');
+    const $paginationText = $('.js-pagination-text');
+
+    if (!$thisSwiper || !$swiperParents.length || !$paginationText.length) return;
+
+    const swiperVision = new Swiper($thisSwiper, {
+      speed: 1000,
+      parallax: true,
+      loop: true,
+      grabCursor: true,
+      autoplay: {
+        delay: 5 * 1000,
+        disableOnInteraction: false,
       },
-      slideChange: function (swiper) {
-        // updatePaginationNum(swiper);
-        // $('.js-panel-swiper').find('.panel-item').eq(swiper.realIndex).addClass('is-active').siblings().removeClass('is-active');
+      navigation: {
+        nextEl: '.swiper-vision .swiper-button-next',
+        prevEl: '.swiper-vision .swiper-button-prev',
       },
-    }
-	});
-  var swiperSlideVision = new Swiper('.swiper-vision-content', {
-		slidesPerView: 1,
-	});
+      on: {
+        init: function (swiper) {
+          swiper.autoplay.stop();
+
+          let checkOpacityInterval = setInterval(() => {
+            const opacity = parseFloat($swiperParents.css('opacity'));
+
+            if (opacity > 0.7 && !swiper.autoplay.running) {
+              swiper.autoplay.start();
+            } else if (opacity <= 0.7 && swiper.autoplay.running) {
+              swiper.autoplay.stop();
+            }
+          }, 1000);
+        },
+        slideChange: function (swiper) {
+          const realIndex = swiper.realIndex;
+          $paginationText.find('.text')
+            .eq(realIndex)
+            .addClass('is-active')
+            .siblings()
+            .removeClass('is-active');
+        }
+      }
+    });
+  };
 
 	$(win).on('scroll', function () {
 	}).scroll();
@@ -158,6 +173,7 @@
 	$(win).on('load', function () {
     eventScaleUpImage();
     eventSwiperVision();
+    swiperSlideVision();
 	});
 
 })(window, window.jQuery);

@@ -153,32 +153,6 @@
   }
   .swiper-management {
     overflow: visible;
-    .custom-control {
-      position: absolute;
-      bottom: -40px;
-      right: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      &-btn {
-        position: static;
-        width: 12px;
-        height: 12px;
-        margin-top: 0;
-      }
-    }
-    .swiper-button-prev {
-      &:after {
-        font-size: inherit;
-        color: $black;
-      }
-    }
-    .swiper-button-next {
-      &:after {
-        font-size: inherit;
-        color: $black;
-      }
-    }
     .swiper-pagination {
       display: flex;
       align-items: center;
