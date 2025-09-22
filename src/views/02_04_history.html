@@ -4,22 +4,63 @@
   "list_title": "History page : Group",
 })
 
-<body class="" data-pagestatus="new : 2025.00.00">
+<body class="" data-pagestatus="new : 2025.09.22">
   @@include('./include/skipnavigation.html')
 
 	<div class="wrap history-page">
     <!--[D] HEADER -->
-    @@include('./include/header.html',{"headerTheme": ""})
+    @@include('./include/header.html',{"headerTheme": "dark"})
 		<!--//[D] HEADER -->
 
 		<!-- [D] CONTENTS -->
 		<main id="container" class="container">
       <!-- https://www.taekwanggroup.co.kr/ko/group/history -->
+      <section class="key-visual js-kv-header">
+        <div class="wrap-box wrap-scale-right js-scale-right-history">
+          @@include('./include/zoom-from-right.html', {
+            'bgZoom': '../img/img-history-01.jpg',
+            'textTitle': 'History <br>Museum',
+            'hasDesc': false,
+          })
+        </div>
+      </section>
+      <section class="section-diagonal-overlay">
+        <div class="wrap-box js-diagonal-overlay-history">
+          @@include('./include/diagonal-overlay.html', {
+            'bgOverlay': '../img/img-history-02.jpg',
+            'textTitle': '한국을 대표하는 탄탄한 기업 <br>사내유보율 부동의 1위 <br>주식가치 국내 최고의 기업',
+          })
+        </div>
+      </section>
+      <section class="section-index ">
+        <div class="wrap-box js-parallax-image">
+          <div class="bg-parallax">
+            <img src="../img/img-history-03.jpg" alt="">
+          </div>
+          <div class="text-box">
+            <span class="index-label">History of</span>
+            <ul class="index-list">
+              <li class="index-item">
+                <span class="text">Challenge</span>
+                <span class="line"></span>
+              </li>
+              <li class="index-item">
+                <span class="text">Innovation</span>
+                <span class="line"></span>
+              </li>
+              <li class="index-item">
+                <span class="text">Sharing</span>
+                <span class="line"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 		</main>
-		<!-- // [D] CONTENTS -->
+    <!-- // [D] CONTENTS -->
 
-		<!--[D] FOOTER -->
-@@include('./include/footer.html')
+    <!--[D] FOOTER -->
+    @@include('./include/footer.html')
 		<!--// [D] FOOTER -->
 	</div>
 

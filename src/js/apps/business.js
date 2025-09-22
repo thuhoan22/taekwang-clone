@@ -148,9 +148,9 @@
           let checkOpacityInterval = setInterval(() => {
             const opacity = parseFloat($swiperParents.css('opacity'));
 
-            if (opacity > 0.7 && !swiper.autoplay.running) {
+            if (opacity > 0.8 && !swiper.autoplay.running) {
               swiper.autoplay.start();
-            } else if (opacity <= 0.7 && swiper.autoplay.running) {
+            } else if (opacity <= 0.8 && swiper.autoplay.running) {
               swiper.autoplay.stop();
             }
           }, 1000);

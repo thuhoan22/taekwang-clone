@@ -1,7 +1,7 @@
 ; (function (win, $) {
 
   var eventZoomOverview = function() {
-    const $wrap = $('.js-wrap-zoom-overview');
+    const $wrap = $('.js-scale-right-overview');
     if (!$wrap.length) return;
 
     const $aniBox_0 = $wrap.find('.ani-box-zoom.step0');
@@ -41,7 +41,7 @@
   };
 
   var eventSplitOverlay = function() {
-    const $overlays = $('.js-diagonal-overlay');
+    const $overlays = $('.js-diagonal-overlay-overview');
     if (!$overlays.length) return;
 
     $overlays.each(function () {

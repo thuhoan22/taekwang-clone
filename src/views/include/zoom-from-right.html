@@ -1,0 +1,21 @@
+<div class="image-n-text">
+  <!-- [D] 1. Đặt `target` khớp vị trí và kích thước với `step0`
+          2. Khi scroll, `target` di chuyển + scale để khớp với `step1`
+          3. Nhờ đó, hình ảnh bên trong `target` tạo cảm giác đang được "zoom"
+  -->
+  <div class="ani-box-zoom step0"></div><!-- Mốc khởi đầu: position: relative để xác định tọa độ và kích thước ban đầu của animation (x, y, width, height) -->
+  <div class="ani-box-zoom step1"></div><!-- Mốc kết thúc: phủ toàn bộ vùng wrap cha, xác định tọa độ và kích thước kết thúc của animation zoom -->
+  <div class="ani-box-zoom target"><!-- Thực hiện hiệu ứng (zoom): Nó ban đầu giống step0, sau đó sẽ được animate để trở thành step1 khi cuộn trang -->
+    <div class="bg-full">
+      <img src="@@bgZoom" alt="">
+    </div>
+  </div>
+  <div class="box-content">
+    <div class="info-area-bottom">
+      <strong class="text">@@textTitle</strong>
+      @@if(hasDesc) {
+        <p class="text-desc">@@textDesc</p>
+      }
+    </div>
+  </div>
+</div>

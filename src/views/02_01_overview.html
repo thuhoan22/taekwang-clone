@@ -14,43 +14,23 @@
 		<!-- [D] CONTENTS -->
 		<main id="container" class="container">
       <section class="key-visual js-kv-header">
-        <div class="wrap-box js-wrap-zoom-overview">
-          <div class="image-n-text">
-            <!-- [D] 1. Đặt `target` khớp vị trí và kích thước với `step0`
-                    2. Khi scroll, `target` di chuyển + scale để khớp với `step1`
-                    3. Nhờ đó, hình ảnh bên trong `target` tạo cảm giác đang được "zoom"
-            -->
-            <div class="ani-box-zoom step0"></div><!-- Mốc khởi đầu: position: relative để xác định tọa độ và kích thước ban đầu của animation (x, y, width, height) -->
-            <div class="ani-box-zoom step1"></div><!-- Mốc kết thúc: phủ toàn bộ vùng wrap cha, xác định tọa độ và kích thước kết thúc của animation zoom -->
-            <div class="ani-box-zoom target"><!-- Thực hiện hiệu ứng (zoom): Nó ban đầu giống step0, sau đó sẽ được animate để trở thành step1 khi cuộn trang -->
-              <div class="bg-full">
-                <img src="../img/img-overview-01.jpg" alt="">
-              </div>
-            </div>
-            <div class="box-content">
-              <div class="info-area-bottom">
-                <strong class="text">Who We Are</strong>
-                <div class="btn"></div>
-              </div>
-            </div>
-          </div>
+        <div class="wrap-box wrap-scale-right js-scale-right-overview">
+          @@include('./include/zoom-from-right.html', {
+            'bgZoom': '../img/img-overview-01.jpg',
+            'textTitle': 'Who We Are',
+            'hasDesc': false,
+          })
         </div>
       </section>
-      <section class="section section-diagonal-overlay">
-        <div class="wrap-box js-diagonal-overlay">
-          <div class="bg-box">
-            <img src="../img/img-overview-overlay.jpg" alt="">
-          </div>
-          <div class="overlay-box">
-            <div class="overlay-box-left"></div>
-            <div class="overlay-box-right"></div>
-          </div>
-          <div class="text-box">
-            <strong>고객의 일상속에서 <br>의미있는 가치를 더합니다</strong>
-          </div>
+      <section class="section-diagonal-overlay">
+        <div class="wrap-box js-diagonal-overlay-overview">
+          @@include('./include/diagonal-overlay.html', {
+            'bgOverlay': '../img/img-overview-overlay.jpg',
+            'textTitle': '고객의 일상속에서 <br>의미있는 가치를 더합니다',
+          })
         </div>
       </section>
-      <section class="section section-company-info">
+      <section class="section-company-info">
         <div class="wrap-box js-change-bg">
           <div class="info-overview">
             <div class="box-right">
@@ -101,7 +81,7 @@
           </div>
         </div>
       </section>
-      <section class="section section-business">
+      <section class="section-business">
         <div class="box-head">
           <div class="inner">
             <div class="title-link">

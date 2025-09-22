@@ -27,21 +27,15 @@
           </div>
         </div>
       </section>
-      <section class="section section-diagonal-overlay">
-        <div class="wrap-box js-diagonal-overlay2">
-          <div class="bg-box">
-            <img src="../img/img-core-value-overlay.jpg" alt="">
-          </div>
-          <div class="overlay-box">
-            <div class="overlay-box-left"></div>
-            <div class="overlay-box-right"></div>
-          </div>
-          <div class="text-box">
-            <strong>5C</strong>
-          </div>
+      <section class="section-diagonal-overlay">
+        <div class="wrap-box js-diagonal-overlay-coreValue">
+          @@include('./include/diagonal-overlay.html', {
+            'bgOverlay': '../img/img-core-value-overlay.jpg',
+            'textTitle': '5C',
+          })
         </div>
       </section>
-      <section class="section section-scale-up">
+      <section class="section-scale-up">
         <div class="wrap-box js-scale-up">
           <div class="text-box js-fade-text-black">
             <strong class="text-title">
@@ -62,29 +56,17 @@
           </div>
         </div>
       </section>
-      <section class="section section-scale-right">
-        <div class="wrap-box js-scale-right">
-          <div class="image-n-text">
-            <div class="ani-box-zoom step0"></div>
-            <div class="ani-box-zoom step1"></div>
-            <div class="ani-box-zoom target">
-              <div class="bg-full">
-                <img src="../img/img-core-value-02.jpg" alt="">
-              </div>
-            </div>
-            <div class="box-content">
-              <div class="info-area-bottom">
-                <strong class="text">5c</strong>
-                <p class="text-desc">
-                  5C는 내실경영과 정도경영을 <br>
-                  태광그룹의 창업정신을 계승한 핵심가치입니다.
-                </p>
-              </div>
-            </div>
-          </div>
+      <section class="section-scale-right">
+        <div class="wrap-box wrap-scale-right js-scale-right-coreValue">
+          @@include('./include/zoom-from-right.html', {
+            'bgZoom': '../img/img-core-value-02.jpg',
+            'hasDesc': true,
+            'textTitle': '5c',
+            'textDesc': '5C는 내실경영과 정도경영을 <br>태광그룹의 창업정신을 계승한 핵심가치입니다.',
+          })
         </div>
       </section>
-      <section class="section section-slide-up">
+      <section class="section-slide-up">
         <div class="wrap-box">
           <div class="text-title-box js-fade-text-slide">
             <strong class="text-title">
@@ -156,12 +138,11 @@
           </ul>
         </div>
       </section>
-      <!-- <section class="section" style="height: 500px;background-color: pink;"></section> -->
 		</main>
 		<!-- // [D] CONTENTS -->
 
 		<!--[D] FOOTER -->
-@@include('./include/footer.html')
+    @@include('./include/footer.html')
 		<!--// [D] FOOTER -->
 	</div>
 

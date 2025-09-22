@@ -58,11 +58,38 @@
       object-fit: cover;
     }
   }
-  .section-diagonal-overlay {
-    .text-box {
-      strong {
-        font-size: 90px;
-        line-height: 1;
+  .section {
+    &-diagonal-overlay {
+      .text-box {
+        strong {
+          font-size: 90px;
+          line-height: 1;
+        }
+      }
+    }
+    &-scale-right {
+      .wrap-scale-right {
+        padding-top: 0;
+      }
+      .ani-box-zoom {
+        &.step0 {
+          width: 320px;
+          height: 180px;
+        }
+      }
+      .box-content {
+        .text {
+          &-desc {
+            display: block;
+            margin-top: 26px;
+            padding-left: 300px;
+            font-size: 50px;
+            font-weight: 500;
+            line-height: 62px;
+            letter-spacing: -0.8px;
+            color: $white;
+          }
+        }
       }
     }
   }
@@ -127,77 +154,6 @@
       z-index: 9;
       width: 100%;
       height: 100%;
-    }
-  }
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-.section-scale-right {
-  .wrap-box {
-    position: relative;
-    height: 100vh;
-  }
-  .image-n-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    height: 100%;
-    padding: 5%;
-    background-color: $white;
-  }
-  .ani-box-zoom {
-    &.step0 {
-      position: relative;
-      width: 320px;
-      height: 180px;
-      pointer-events: none;
-    }
-    &.step1 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-    &.target {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 9;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-    .bg-full {
-      height: 100%;
-    }
-  }
-  .box-content {
-    position: relative;
-    z-index: 20;
-    mix-blend-mode: difference;
-    .text {
-      display: block;
-      font-weight: 700;
-      font-size: 128px;
-      line-height: 1;
-      color: $white;
-      &-desc {
-        display: block;
-        margin-top: 26px;
-        padding-left: 300px;
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 62px;
-        letter-spacing: -0.8px;
-        color: $white;
-      }
     }
   }
   img {
