@@ -5,11 +5,14 @@
   padding: 100px 0;
   background-color: #E9E3DC;
   .wrap-box {
+    overflow: hidden;
     position: relative;
   }
   .bg-parallax {
-    max-width: 448px;
+    width: 448px;
+    height: 720px;
     margin: 0 auto;
+    transition: .2s;
   }
   .text-box {
     position: absolute;
@@ -56,6 +59,209 @@
         }
       }
     }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.section-grab {
+  position: relative;
+  padding: 100px 0;
+  .text-box {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    text-align: center;
+    pointer-events: none;
+    .text {
+      &-title {
+        font-size: 128px;
+        font-weight: 700;
+        line-height: 1;
+        color: $black;
+      }
+      &-desc {
+        margin-top: 30px;
+        text-align: left;
+      }
+      &-md {
+        display: block;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1;
+        color: $black;
+        &>em {
+          color: #B4985A;
+        }
+      }
+      &-sm {
+        display: block;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        color: $gray;
+      }
+    }
+  }
+  .thumb-n-text {
+    position: relative;
+    .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      padding: 18px 24px;
+      background-color: rgba($black, 0.4);
+      &>span {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        color: $white;
+      }
+    }
+    .thumb {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      img {
+        transform: scale(1.05);
+        transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+      }
+    }
+  }
+  .swiper {
+    &-wrapper {
+      transition-timing-function: ease-out;
+      margin: 0 auto;
+    }
+    &-slide {
+      overflow: hidden;
+      width: max-content;
+    }
+  }
+  &.mouseover {
+    .thumb {
+      img {
+        transform: scale(1);
+      }
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.section-challenge {
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 50%;
+    background-color: #E3E0DA;
+    content: '';
+  }
+  .text-box {
+    right: 10%;
+  }
+  .swiper-grab-challenge {
+    padding: 0 150px;
+  }
+  .thumb-n-text {
+    width: 1000px;
+    height: 716px;
+    margin-right: 600px;
+  }
+}
+.section-innovation {
+  .text-box {
+    left: 10%;
+  }
+  .swiper-grab-innovation {
+    padding: 0 100px 0 300px;
+  }
+  .thumb-n-text {
+    width: 560px;
+    height: 790px;
+    margin-left: 300px;
+  }
+}
+.section-sharing {
+  background-color: #CAC7C3;
+  .text-box {
+    right: 10%;
+  }
+  .swiper-grab-sharing {
+    padding-left: 250px;
+  }
+  .thumb-n-text {
+    width: 1000px;
+    height: 716px;
+    margin-right: 600px;
+  }
+}
+.section-monthly {
+  padding-bottom: 160px;
+  .inner {
+    padding: 0 5%;
+  }
+  .box {
+    &-head {
+      padding-top: 100px;
+      .text-title {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1;
+        color: $gray;
+        text-transform: uppercase;
+      }
+    }
+    &-content {
+      position: relative;
+      margin-top: 50px;
+      .info {
+        position: relative;
+        width: max-content;
+        .thumb {
+          display: block;
+          width: 600px;
+          height: 600px;
+        }
+        .text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: max-content;
+          transform: translate(-50%, -50%);
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 1;
+          color: $white;
+          text-align: center;
+          &>em {
+            display: block;
+            margin-bottom: 16px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  .number {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    font-size: 200px;
+    font-weight: 700;
+    line-height: 1;
+    color: #E9E3DC;
   }
   img {
     width: 100%;
