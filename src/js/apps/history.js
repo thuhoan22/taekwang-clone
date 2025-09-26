@@ -137,55 +137,18 @@
     const $wrap = $('.js-history-phase1');
     if(!$wrap.length) return;
 
-    const $phase1From = $wrap.find('.ani-phase1.step0');
-    const $phase1To = $wrap.find('.ani-phase1.step1');
-    const $phase1Target = $wrap.find('.ani-phase1.target');
-    const $phase1End = $wrap.find('.ani-phase1.end');
+    const $phase1From = $wrap.find('.ani-phase.step0');
+    const $phase1To = $wrap.find('.ani-phase.step1');
+    const $phase1Target = $wrap.find('.ani-phase.target');
+    const $phase1End = $('.section-history').find('.ani-phase.end');
 
-    // const $phase1BgFull = $wrap.find('.ani-phase1 .bg-full');
-    // const $phase1TextFade = $wrap.find('.ani-phase1 .text-area');
-    // const $phase1TextItemFade = $phase1TextFade.find('.text-area-year');
+    const $phase1TextFade = $phase1Target.find('.text-area');
+    const $phase1TextItemFade = $phase1TextFade.find('.text-area-year');
 
-    if(!$phase1From.length || !$phase1To.length || !$phase1Target.length || !$phase1End.length) return;
-
-    const $phase1TextFade = $wrap.find('.text-area');
-    const $phase1Text1 = $wrap.find('.js-text-area-year1');
-    const $phase1Line1 = $phase1Text1.find('.line');
-    const $phase1Text2 = $wrap.find('.js-text-area-year2');
-    const $phase1Line2 = $phase1Text2.find('.line');
-    if(!$phase1Text1.length || !$phase1Text2.length || !$phase1Line1.length || !$phase1Line2.length) return;
-
-    const $phaseDetail1 = $wrap.find('.js-phase-detail');
-    if(!$phaseDetail1.length) return;
+    const $phaseDetailWrap = $('.section-history').find('.phase-detail');
+    const $phaseDetailFade = $phaseDetailWrap.find('.js-phase-content-fade');
 
     const tl = gsap.timeline();
-
-    // tl.to($phase1BgFull, {
-    //   width: '100%',
-    //   height: '100%',
-    // });
-
-    // tl.to($phase1TextFade, {
-    //   opacity: 1,
-    // });
-
-    // $phase1TextItemFade.each(function (i) {
-    //   const $this = $(this);
-    //   const $phase1Line = $this.find('.line');
-    //   tl.fromTo($this, {
-    //     x: '-10%',
-    //     opacity: 0,
-    //   }, {
-    //     x: '0',
-    //     opacity: 1,
-    //   });
-
-    //   tl.fromTo($phase1Line, {
-    //     scale: 0,
-    //   }, {
-    //     scale: 1,
-    //   }, '<');
-    // });
 
     tl.set($phase1Target, {
       x: () => $phase1From[0].getBoundingClientRect().x,
@@ -201,53 +164,27 @@
       height: () => $phase1To.outerHeight(),
     });
 
-    tl.fromTo($phase1Text1, {
-      x: '-50',
-      opacity: 0,
-    }, {
-      x: '0',
+    tl.to($phase1TextFade, {
       opacity: 1,
-    }, '>');
+    });
 
-    tl.fromTo($phase1Line1, {
-      scale: '0.7'
-    }, {
-      scale: '1'
-    }, '>');
+    $phase1TextItemFade.each(function (i) {
+      const $this = $(this);
+      const $phase1Line = $this.find('.line');
+      tl.fromTo($this, {
+        x: '-10%',
+        opacity: 0,
+      }, {
+        x: '0',
+        opacity: 1,
+      });
 
-    tl.fromTo($phase1Text2, {
-      x: '50',
-      opacity: 0,
-    }, {
-      x: '0',
-      opacity: 1,
-    }, '+=0.2');
-
-    tl.fromTo($phase1Line2, {
-      scale: '0.7'
-    }, {
-      scale: '1',
-      onComplete: () => {
-        // when animation of $phase1Line2 complete
-        // tl.to($phase1Text1, {
-        //   x: '-50',
-        //   opacity: 0,
-        // }, '>');
-
-        // tl.to($phase1Line1, {
-        //   scale: '0.7'
-        // }, '>');
-
-        // tl.to($phase1Text2, {
-        //   x: '-50',
-        //   opacity: 0,
-        // }, '>');
-
-        // tl.to($phase1Line2, {
-        //   scale: '0.7'
-        // }, '>');
-      }
-    }, '>');
+      tl.fromTo($phase1Line, {
+        scale: 0,
+      }, {
+        scale: 1,
+      }, '<');
+    });
 
     tl.to($phase1TextFade, {
       opacity: 0
@@ -261,7 +198,7 @@
       duration: 1,
     },'+=0.5');
 
-    tl.fromTo($phaseDetail1, {
+    tl.fromTo($phaseDetailFade, {
       y: '100',
       opacity: 0,
     }, {
@@ -269,8 +206,6 @@
       opacity: 1,
       duration: 1,
     }, '>');
-
-
 
     const sct = ScrollTrigger.create({
       id: 'history-phase1',
@@ -286,8 +221,16 @@
     })
   };
 
+
 	$(win).on('scroll', function () {
     eventParallaxImage();
+    const overview = document.querySelector('.phase-detail-overview');
+    if (!overview) return;
+
+    const rect = overview.getBoundingClientRect();
+    console.log('Scroll Y:', window.scrollY);
+    console.log('Overview top (viewport):', rect.top);
+
 	}).scroll();
 
 	$(win).on('load', function () {

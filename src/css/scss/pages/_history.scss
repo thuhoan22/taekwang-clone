@@ -208,7 +208,7 @@
   }
 }
 .section-monthly {
-  padding-bottom: 160px;
+  padding-bottom: 100px;
   .inner {
     padding: 0 5%;
   }
@@ -270,11 +270,12 @@
   }
 }
 .section-history {
+  position: relative;
   .history {
     &-phase1 {
       position: relative;
       height: 100vh;
-      .ani-phase1 {
+      .ani-phase {
         &.step0 {
           position: absolute;
           bottom: 0;
@@ -301,17 +302,15 @@
           width: 100%;
           height: 100%;
         }
-        &.end {
-          // position: absolute;
-          // top: 50%;
-          // left: 0;
-          position: relative;
-          top: 0;
-          z-index: 10;
-          width: 430px;
-          height: 282px;
-          // transform: translateY(-50%);
-        }
+        // &.end {
+        //   position: absolute;
+        //   top: 50%;
+        //   left: 0;
+        //   z-index: 10;
+        //   width: 430px;
+        //   height: 282px;
+        //   transform: translateY(-50%);
+        // }
       }
       .bg-full {
         height: 100%;
@@ -345,37 +344,42 @@
         }
       }
     }
-    &-phase2 {
-      height: 100vh;
-    }
   }
   .phase {
     &-detail {
-      display: flex;
-      position: relative;
-      max-width: 1000px;
-      height: 100%;
-      margin: 0 auto;
-      padding-top: 30%;
+      position: absolute;
+      // top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 15;
+      .box-phase-content {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        max-width: 1000px;
+        height: 100%;
+        margin: 0 auto;
+      }
+      .ani-phase.end {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 10;
+        width: 430px;
+        height: 282px;
+        transform: translateY(-50%);
+      }
     }
-    &-overview {
+    &-detail-overview {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: sticky;
+      top: 0;
       width: 50%;
-      &-child {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        transform: translateY(-50%);
-      }
-      .sticky-area {
-        position: sticky;
-        top: 0;
-        height: max-content;
-      }
+      height: 100vh;
       .text {
         &-title {
           font-size: 50px;
@@ -392,14 +396,19 @@
           color: #B4985A;
         }
       }
+      .box-head {
+        padding-top: 30%;
+      }
     }
     &-list {
       flex: 1;
       margin-left: 70px;
+      padding-top: 15%;
+      opacity: 0;
     }
     &-item {
       &:not(:first-child) {
-        margin-top: 70px;
+        margin-top: 100px;
       }
       .text {
         &-title {
@@ -423,6 +432,14 @@
         }
       }
     }
+  }
+  .box-emulator {
+    position: relative;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    opacity: 0;
+    pointer-events: none;
   }
   img {
     width: 100%;
