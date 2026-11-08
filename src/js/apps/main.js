@@ -52,7 +52,7 @@
         // end: () => "+=" + document.querySelector(".key-visual").offsetHeight + " bottom",
         scrub: true,
         pin: true,
-        markers: true,
+        // markers: true,
         animation: tl
       });
 
